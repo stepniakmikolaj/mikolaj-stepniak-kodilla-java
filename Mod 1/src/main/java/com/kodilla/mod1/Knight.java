@@ -1,6 +1,4 @@
 package com.kodilla.mod1;
-import com.kodilla.mod1.DeadIslandQ;
-import com.kodilla.mod1.EliteKnightQ;
 
 
 public class Knight {

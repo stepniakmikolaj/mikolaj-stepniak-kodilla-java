@@ -1,7 +1,5 @@
 package com.kodilla.mod1;
 
-import com.kodilla.mod1.User;
-
 public class UserValidator {
     private double age;
     private double height;

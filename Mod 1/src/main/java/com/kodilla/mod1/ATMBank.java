@@ -1,7 +1,5 @@
 package com.kodilla.mod1;
 
-import com.kodilla.mod1.Bank;
-
 public class ATMBank extends Bank {
     @Override
     protected void requestCardInsert() {

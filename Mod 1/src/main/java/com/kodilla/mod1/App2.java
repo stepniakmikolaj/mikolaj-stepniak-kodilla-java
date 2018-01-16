@@ -1,6 +1,4 @@
 package com.kodilla.mod1;
-import com.kodilla.mod1.ATM;
-import com.kodilla.mod1.ATMImpl;
 
 public class App2 {
     public static void main (String args[]){
