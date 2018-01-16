@@ -1,9 +1,5 @@
 package com.kodilla.mod1;
 
-import com.kodilla.mod1.Employee;
-import com.kodilla.mod1.FixedSalaryEmployee;
-import com.kodilla.mod1.HourlySalaryEmployee;
-
 public class App5 {
     public static void main(String args[]) {
         FixedSalaryEmployee employee1 = new FixedSalaryEmployee(20000);

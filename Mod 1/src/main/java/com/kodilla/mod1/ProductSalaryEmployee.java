@@ -1,7 +1,5 @@
 package com.kodilla.mod1;
 
-import com.kodilla.mod1.Employee;
-
 public class ProductSalaryEmployee implements Employee {
     private int productNumber;
     private double productPay;

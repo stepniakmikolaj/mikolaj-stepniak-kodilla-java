@@ -1,7 +1,5 @@
 package com.kodilla.mod1;
 
-import com.kodilla.mod1.FixedSalaryEmployee;
-
 public class FixedSalaryEmployee implements Employee {
     private double fixedSalary;
 

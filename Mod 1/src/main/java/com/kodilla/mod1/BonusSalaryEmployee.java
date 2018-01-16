@@ -1,7 +1,5 @@
 package com.kodilla.mod1;
 
-import com.kodilla.mod1.FixedSalaryEmployee;
-
 public class BonusSalaryEmployee extends FixedSalaryEmployee {
     private double bonusPay;
     private boolean additionalSales;
