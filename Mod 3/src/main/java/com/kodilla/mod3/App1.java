@@ -27,7 +27,7 @@ public class App1 {
             if (theBook.getPublicationYear() <= 2010) {
                 System.out.println(theBook);
             }
-            ;
+
         }
     }
 }
