@@ -1,5 +1,7 @@
 package com.kodilla.testing.forum;
-import com.kodilla.testing.user.SimpleUser;
+
+import com.kodilla.testing.user.ExpandedUser;
+
 import org.junit.*;
 
 public class ForumTestSuite {
@@ -22,9 +24,9 @@ public class ForumTestSuite {
     @Test
     public void testCaseUsername(){
         //Given
-        SimpleUser simpleUser = new SimpleUser("theForumUser", "Jonny Cage","Male");
+        ExpandedUser expandedUser = new ExpandedUser("theForumUser", "Jonny Cage","Male");
         //When
-        String result = simpleUser.getUsername();
+        String result = expandedUser.getUsername();
         System.out.println("Testing: " + result);
         //Then
         Assert.assertEquals("theForumUser", result);
@@ -32,9 +34,9 @@ public class ForumTestSuite {
     @Test
     public void testCaseRealName(){
         //Given
-        SimpleUser simpleUser = new SimpleUser("theForumUser", "Jonny Cage", "Male");
+        ExpandedUser expandedUser = new ExpandedUser("theForumUser", "Jonny Cage", "Male");
         //When
-        String result = simpleUser.getRealName();
+        String result = expandedUser.getRealName();
         System.out.println("Testing: " + result);
         //Then
         Assert.assertEquals("Jonny Cage", result);
@@ -42,9 +44,9 @@ public class ForumTestSuite {
     @Test
     public void testCaseSex(){
         //Given
-        SimpleUser simpleUser = new SimpleUser("theForumUser", "Jonny Cage", "Male");
+        ExpandedUser expandedUser = new ExpandedUser("theForumUser", "Jonny Cage", "Male");
         //When
-        String result = simpleUser.getSex();
+        String result = expandedUser.getSex();
         System.out.println("Testing: " + result);
         //Then
         Assert.assertEquals("Male", result);

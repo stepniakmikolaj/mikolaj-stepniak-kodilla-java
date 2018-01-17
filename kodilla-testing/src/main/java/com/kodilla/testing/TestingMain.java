@@ -7,7 +7,7 @@ import com.kodilla.testing.calculator.Calculator;
 
 public class TestingMain {
     public static void main(String[] args) {
-        SimpleUser simpleUser = new SimpleUser("theForumUser", "Jonny Cage","Male");
+        SimpleUser simpleUser = new SimpleUser("theForumUser");
 
         System.out.println("Test theForumUser:");
 
