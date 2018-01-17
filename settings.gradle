@@ -1,4 +1,7 @@
 include 'kodilla-testing'
 include 'M 0.1'
 include 'Mod 1'
+include 'Mod 2'
+include 'Mod 2'
+include 'Mod 3'
 
