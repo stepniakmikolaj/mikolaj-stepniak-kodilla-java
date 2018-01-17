@@ -11,13 +11,43 @@ która zwraca również kolekcję ArrayList liczb typu Integer,
 stanowiącą podzbiór kolekcji wejściowej z pominięciem liczb nieparzystych.
 */
 public class OddNumbersExterminator {
-    private int a;
 
-    public void exterminate(ArrayList<Integer> numbers) {
+    ArrayList<Integer> numbers = new ArrayList<Integer>();
+    ArrayList<Integer> oddNumbers = new ArrayList<Integer>();
+    ArrayList<Integer> evenNumbers = new ArrayList<Integer>();
 
+    public int emptyList() {
+        return numbers.size();
     }
 
-    public int getA() {
-        return a;
+    for(int i = 1; i< 9; i++)
+
+    { // ma dodać liczby do listy 1,2,3,4,5,6,7,8. czyli 8 liczb
+        numbers.add(i);
     }
+
+    public int normalList() {
+        return numbers.size();
+    }
+
+    for(
+    Integer number: numbers)/*each po kolei przez numbers*/
+
+    {
+        if (numbers / 2 == 0)
+            evenNumbers.add();
+    } else
+
+    {
+        oddNumbers.add();
+    }
+
+    public int evenNumbers() {
+        return evenNumbers.size();
+    }
+
+    public int oddNumbers() {
+        return oddNumbers.size();
+    }
+
 }

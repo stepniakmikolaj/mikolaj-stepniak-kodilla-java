@@ -12,7 +12,7 @@ testOddNumbersExterminatorEmptyList (sprawdzi czy klasa zachowuje się poprawnie
 testOddNumbersExterminatorNormalList (sprawdzi czy klasa zachowuje się poprawnie gdy lista zawiera liczby parzyste i nieparzyste)
 Użyj również adnotacji @Before oraz @After, aby wyświetlić informację o tym, jakie operacje (testy) są aktualnie wykonywane.
 */
-/*
+
 public class CollectionTestSuite {
     @Before
     public void before() {
@@ -39,10 +39,10 @@ public class CollectionTestSuite {
         //Given
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         //When
-        int result = oddNumbersExterminator.getA();
+        int result = oddNumbersExterminator.emptyList(numbers.size());
         System.out.println("Testing: " + result);
         //Then
-        Assert.assertEquals(1, result);
+        Assert.assertEquals(0, result);
     }
 
     @Test
@@ -50,10 +50,31 @@ public class CollectionTestSuite {
         //Given
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         //When
-        int result = oddNumbersExterminator.getA();
+        int result = oddNumbersExterminator.normalList(numbers.size());
         System.out.println("Testing: " + result);
         //Then
-        Assert.assertEquals(1, result);
+        Assert.assertEquals(8, result);
+    }
+
+    @Test
+    public void testOddNumberExterminatorOddList(){
+        //Given
+        OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
+        //When
+        int result = oddNumbersExterminator.oddNumbers(oddNumbers.size());
+        System.out.println("Testing: " + result);
+        //Then
+        Assert.assertEquals(4, result);
+    }
+
+    @Test
+    public void testOddNumbersExterminatorEvenList(){
+        //Given
+        OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
+        //When
+        int result = oddNumbersExterminator.evenNumbers(oddNumbers.size());
+        System.out.println("Testing: " + result);
+        //Then
+        Assert.assertEquals(4, result);
     }
 }
-*/
