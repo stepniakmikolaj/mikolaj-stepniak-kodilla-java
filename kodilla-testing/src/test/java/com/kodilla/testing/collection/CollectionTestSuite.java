@@ -1,5 +1,7 @@
 package com.kodilla.testing.collection;
 
+import com.kodilla.testing.collection.OddNumbersExterminator;
+
 import org.junit.*;
 
 import java.util.ArrayList;
@@ -37,44 +39,25 @@ public class CollectionTestSuite {
     @Test
     public void testOddNumbersExterminatorEmptyList() {
         //Given
+        ArrayList<Integer> emptyList = new ArrayList<Integer>();
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         //When
-        int result = oddNumbersExterminator.emptyList(numbers.size());
-        System.out.println("Testing: " + result);
+        ArrayList<Integer> result = oddNumbersExterminator.exterminate(emptyList);
+        System.out.println("Testing: " + result.size());
         //Then
-        Assert.assertEquals(0, result);
+        Assert.assertEquals(0, result.size());
     }
 
     @Test
     public void testOddNumbersExterminatorNormalList() {
         //Given
+        ArrayList<Integer> numbers = new ArrayList<Integer>();
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         //When
-        int result = oddNumbersExterminator.normalList(numbers.size());
-        System.out.println("Testing: " + result);
-        //Then
-        Assert.assertEquals(8, result);
+        ArrayList<Integer> result = oddNumbersExterminator.exterminate(numbers);
+        System.out.println("Testing: " + result.size());
+        // Then
+        Assert.assertEquals(0, result.size());
     }
 
-    @Test
-    public void testOddNumberExterminatorOddList(){
-        //Given
-        OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
-        //When
-        int result = oddNumbersExterminator.oddNumbers(oddNumbers.size());
-        System.out.println("Testing: " + result);
-        //Then
-        Assert.assertEquals(4, result);
-    }
-
-    @Test
-    public void testOddNumbersExterminatorEvenList(){
-        //Given
-        OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
-        //When
-        int result = oddNumbersExterminator.evenNumbers(oddNumbers.size());
-        System.out.println("Testing: " + result);
-        //Then
-        Assert.assertEquals(4, result);
-    }
 }

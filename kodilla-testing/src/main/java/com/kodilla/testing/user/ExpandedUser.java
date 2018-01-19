@@ -1,6 +1,6 @@
 package com.kodilla.testing.user;
 
-public class ExpandedUser extends SimpleUser{
+public class ExpandedUser extends SimpleUser {
     private String realName;
     private String sex;
 
@@ -11,11 +11,10 @@ public class ExpandedUser extends SimpleUser{
     }
 
     public String getRealName() {
-
-        return realName;
+        return this.realName;
     }
 
     public String getSex() {
-        return sex;
+        return this.sex;
     }
 }
