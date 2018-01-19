@@ -25,8 +25,8 @@ public class TestingMain {
 
         int addResult = calculator.add(10, 5);
         int substractResult = calculator.subtract(24, 9);
-        int multipyResult = calculator.multiply(3,5);
-        int divideResult = calculator.divide(30,2);
+        int multipyResult = calculator.multiply(3, 5);
+        int divideResult = calculator.divide(30, 2);
 
         if (addResult == 15 || substractResult == 15 || multipyResult == 15 || divideResult == 15) {
             System.out.println("Calculator Ok");
