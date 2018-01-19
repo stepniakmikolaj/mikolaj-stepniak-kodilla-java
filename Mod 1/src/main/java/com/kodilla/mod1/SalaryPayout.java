@@ -9,7 +9,7 @@ public abstract class SalaryPayout {
 
     protected abstract void payout();
 
-    public void processPayout(){
+    public void processPayout() {
         System.out.println("Payment for: " + this.employee.calculateSalary() + " PLN");
         this.payout();
         System.out.println("Payout complited");

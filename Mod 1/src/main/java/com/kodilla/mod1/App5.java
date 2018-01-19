@@ -2,10 +2,10 @@ package com.kodilla.mod1;
 
 public class App5 {
     public static void main(String args[]) {
-        FixedSalaryEmployee employee1 = new FixedSalaryEmployee(20000);
-        HourlySalaryEmployee employee2 = new HourlySalaryEmployee(160, 32);
-        ProductSalaryEmployee employee3 = new ProductSalaryEmployee(5, 590);
-        BonusSalaryEmployee employee4 = new BonusSalaryEmployee(100000, 0.2, true);
+        FixedSalaryEmployee employee1 = new FixedSalaryEmployee(10000.00);
+        HourlySalaryEmployee employee2 = new HourlySalaryEmployee(160, 32.50);
+        ProductSalaryEmployee employee3 = new ProductSalaryEmployee(5, 599.99);
+        BonusSalaryEmployee employee4 = new BonusSalaryEmployee(10000, 0.25, true);
 
         SalaryPayoutProcessor processor1 = new SalaryPayoutProcessor(employee1);
         processor1.processPayout();
