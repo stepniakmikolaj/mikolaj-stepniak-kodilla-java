@@ -12,10 +12,12 @@ public class ForumPost {
     }
 
     public String getPostBody() {
+
         return postBody;
     }
 
     public String getAuthor() {
+
         return author;
     }
 

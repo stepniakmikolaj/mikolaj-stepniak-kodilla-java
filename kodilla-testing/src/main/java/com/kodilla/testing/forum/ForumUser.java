@@ -27,10 +27,12 @@ public class ForumUser {
     }
 
     public int getPostsQuantity(){
+
         return posts.size();
     }
 
     public int getCommentsQuantity(){
+
         return comments.size();
     }
 
@@ -69,10 +71,12 @@ public class ForumUser {
     }
 
     public String getName() {
+
         return name;
     }
 
     public String getRealName() {
+
         return realName;
     }
 }
