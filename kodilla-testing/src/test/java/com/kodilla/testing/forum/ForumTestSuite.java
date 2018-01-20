@@ -6,33 +6,38 @@ import org.junit.*;
 
 public class ForumTestSuite {
     @Before
-    public void before(){
+    public void before() {
         System.out.println("Test Case Before: Begin");
     }
+
     @After
-    public void after(){
+    public void after() {
         System.out.println("Test Case After: End");
     }
+
     @BeforeClass
-    public static void beforeClass(){
-        System.out.println("Test Suite: Rozpoczynam");
+    public static void beforeClass() {
+        System.out.println("Test Suite: Start");
     }
+
     @AfterClass
-    public static void afterClass(){
-        System.out.println("Test Suite: Kończę");
+    public static void afterClass() {
+        System.out.println("Test Suite: End");
     }
+
     @Test
-    public void testCaseUsername(){
+    public void testCaseUsername() {
         //Given
-        ExpandedUser expandedUser = new ExpandedUser("theForumUser", "Jonny Cage","Male");
+        ExpandedUser expandedUser = new ExpandedUser("theForumUser", "Jonny Cage", "Male");
         //When
         String result = expandedUser.getUsername();
         System.out.println("Testing: " + result);
         //Then
         Assert.assertEquals("theForumUser", result);
     }
+
     @Test
-    public void testCaseRealName(){
+    public void testCaseRealName() {
         //Given
         ExpandedUser expandedUser = new ExpandedUser("theForumUser", "Jonny Cage", "Male");
         //When
@@ -41,8 +46,9 @@ public class ForumTestSuite {
         //Then
         Assert.assertEquals("Jonny Cage", result);
     }
+
     @Test
-    public void testCaseSex(){
+    public void testCaseSex() {
         //Given
         ExpandedUser expandedUser = new ExpandedUser("theForumUser", "Jonny Cage", "Male");
         //When

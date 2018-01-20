@@ -1,26 +1,27 @@
 package com.kodilla.testing.collection;
 
 import java.util.ArrayList;
+import java.util.Random;
 
-/*
-W katalogu src/main/java utwórz pakiet com.kodilla.testing.collection
-W utworzonym pakiecie stwórz klasę OddNumbersExterminator
-posiadającą metodę exterminate(ArrayList<Integer> numbers)
-przyjmującą jako argument kolekcję ArrayList liczb typu Integer,
-która zwraca również kolekcję ArrayList liczb typu Integer,
-stanowiącą podzbiór kolekcji wejściowej z pominięciem liczb nieparzystych.
-*/
 public class OddNumbersExterminator {
 
-    public ArrayList<Integer> exterminate(ArrayList<Integer> numbers) {
+
+    public ArrayList<Integer> exterminate(ArrayList<Integer> numbers, int value) {
+        ArrayList<Integer> theList = new ArrayList<Integer>();
         ArrayList<Integer> evenNumbers = new ArrayList<Integer>();
 
-        for (int i = 0; i < numbers.size(); i++) {
-            int number = numbers.get(i);
+        Random theGenerator = new Random();
+
+        for (int i = 0; i < value; i++) {
+            theList.add(theGenerator.nextInt(11111));
+        }
+
+        for (int i = 0; i < theList.size(); i++) {
+            int number = theList.get(i);
             if (number % 2 == 0) {
                 evenNumbers.add(number);
             }
         }
-        return evenNumbers;
+        return theList;
     }
 }
