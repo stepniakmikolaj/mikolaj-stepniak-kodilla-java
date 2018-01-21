@@ -10,11 +10,13 @@ public class ForumTestSuite {
 
     @BeforeClass
     public static void beforeAllTests() {
+
         System.out.println("This is the beginning of tests.");
     }
 
     @AfterClass
     public static void afterAllTests() {
+
         System.out.println("All tests are finished.");
     }
 
@@ -32,9 +34,11 @@ public class ForumTestSuite {
         //When
         forumUser.addPost("mrsmith",
                 "Hello everyone, this is my first contribution here!");
+        forumUser.addPost("mrsmith",
+                "Hello everyone again, this is my second contribution here!");
 
         //Then
-        Assert.assertEquals(1, forumUser.getPostsQuantity());
+        Assert.assertEquals(2, forumUser.getPostsQuantity());
     }
 
     @Test
@@ -46,9 +50,12 @@ public class ForumTestSuite {
 
         //When
         forumUser.addComment(thePost, "mrsmith", "Thank you for all good words!");
+        forumUser.addComment(thePost, "mrsmith", "Thank you for all good words!");
+        forumUser.addComment(thePost, "mrsmith", "Thank you for all good words!");
+        forumUser.addComment(thePost, "mrsmith", "Thank you for all good words!");
 
         //Then
-        Assert.assertEquals(1, forumUser.getCommentsQuantity());
+        Assert.assertEquals(4, forumUser.getCommentsQuantity());
     }
 
     @Test
