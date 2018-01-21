@@ -4,7 +4,7 @@ public class Triangle implements Shape{
     Double height;
     Double lenghtA;
 
-    public Triangle(Double height, Double a) {
+    public Triangle(Double height, Double lenghtA) {
         this.height = height;
         this.lenghtA = lenghtA;
     }

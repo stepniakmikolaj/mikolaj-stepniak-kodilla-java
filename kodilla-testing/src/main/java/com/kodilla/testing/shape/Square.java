@@ -3,7 +3,7 @@ package com.kodilla.testing.shape;
 public class Square implements Shape {
     Double lenghtA;
 
-    public Square(Double a) {
+    public Square(Double lenghtA) {
         this.lenghtA = lenghtA;
     }
 
