@@ -2,6 +2,9 @@ package com.kodilla.testing.forum.statistics;
 
 import com.kodilla.testing.forum.staitstics.ForumStatistics;
 import com.kodilla.testing.forum.staitstics.Statistics;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -13,6 +16,25 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class ForumStatisticsTestSuite {
+    private static int testCounter = 0;
+
+    @BeforeClass
+    public static void beforeAllTests() {
+
+        System.out.println("This is the beginning of tests.");
+    }
+
+    @AfterClass
+    public static void afterAllTests() {
+
+        System.out.println("All tests are finished.");
+    }
+
+    @Before
+    public void beforeEveryTest() {
+        testCounter++;
+        System.out.println("Preparing to execute test #" + testCounter);
+    }
 
     @Test
     public void testForumStatisticsZeroPosts() {
@@ -127,12 +149,13 @@ public class ForumStatisticsTestSuite {
         assertEquals(0, quantityOfPost);
         assertEquals(0, quantityOfComments);
     }
+
     @Test
     public void testForumStatisticsOneHundredUsers() {
         //g
         List<String> theList = new ArrayList<>();
-        for(int i = 1; i < 101; i++){
-            theList.add("User "+ i);
+        for (int i = 1; i < 101; i++) {
+            theList.add("User " + i);
         }
         int quantityOfPost = 100;
         int quantityOfComments = 100;

@@ -1,6 +1,10 @@
 package com.kodilla.testing.forum.staitstics;
 
+import java.util.ArrayList;
+
 public class ForumStatistics {
+
+    private ArrayList<Statistics> theList = new ArrayList<Statistics>();
 
     Statistics statistics;
 
@@ -61,15 +65,5 @@ public class ForumStatistics {
 
     public double getAverageQuantityCommentsOnPost() {
         return averageQuantityCommentsOnPost;
-    }
-
-    public void showStatistics() {
-        System.out.println("Forum:\n" +
-                "Total users: " + quantityOfUsers + "\n" +
-                "Total posts: " + quantityOfPosts + "\n" +
-                "Total comments: " + quantityOfComments + "\n" +
-                "Average post per user: " + averageQuantityPostsOnUser + "\n" +
-                "Average comments per user: " + averageQuantityCommentsOnUser + "\n" +
-                "Average comments per post: " + averageQuantityCommentsOnPost);
     }
 }
