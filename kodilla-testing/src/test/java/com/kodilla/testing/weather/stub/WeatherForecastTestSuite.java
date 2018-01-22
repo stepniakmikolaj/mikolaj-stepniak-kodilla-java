@@ -9,7 +9,7 @@ public class WeatherForecastTestSuite {
     @Test
     public void testCalculateForecastWithStub() {
         //given
-        Temperatures temperatures = new TemperatureStub();
+        Temperatures temperatures = new TemperaturesStub();
         WeatherForecast weatherForecast = new WeatherForecast(temperatures);
         //when
         int quantityOfSensors = weatherForecast.calculateForecast().size();
