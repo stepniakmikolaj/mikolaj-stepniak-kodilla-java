@@ -35,13 +35,13 @@ public class StreamMain {
         poemBeautifier.beautify(poem, stringToDecorate -> stringToDecorate.toLowerCase());
         poemBeautifier.beautify(poem, stringToDecorate -> stringToDecorate.replaceFirst("Tekst", "null"));
         System.out.println("----------------------------------------------");
+
         System.out.println("Poem Beautify with Reference");
         poemBeautifier.beautify(poem, FunctionalPoemDecorator::addABCToFronAndEnd);
         poemBeautifier.beautify(poem, FunctionalPoemDecorator::upperCase);
         poemBeautifier.beautify(poem, FunctionalPoemDecorator::lowerCase);
         poemBeautifier.beautify(poem, FunctionalPoemDecorator::replace);
         System.out.println("----------------------------------------------");
-
 
         System.out.println("Using Stream to generate even numbers from 1 to 20");
         NumbersGenerator.genetateEven(20);
