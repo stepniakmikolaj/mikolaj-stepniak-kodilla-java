@@ -1,12 +1,6 @@
 package com.kodilla.testing.forum.staitstics;
 
-import java.util.ArrayList;
-
 public class ForumStatistics {
-
-    private ArrayList<Statistics> theList = new ArrayList<Statistics>();
-
-    Statistics statistics;
 
     int quantityOfUsers;
     int quantityOfPosts;
@@ -37,10 +31,6 @@ public class ForumStatistics {
             averageQuantityCommentsOnUser = 0;
             averageQuantityCommentsOnPost = 0;
         }
-    }
-
-    public Statistics getStatistics() {
-        return statistics;
     }
 
     public int getQuantityOfUsers() {

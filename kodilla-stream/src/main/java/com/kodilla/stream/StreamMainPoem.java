@@ -9,8 +9,8 @@ public class StreamMainPoem {
         PoemBeautifier poemBeautifier = new PoemBeautifier();
         String poem = "Tekst tekst tekst";
         poemBeautifier.beautify(poem, stringToDecorate -> "abc" + stringToDecorate + "cba");
-        poemBeautifier.beautify(poem, stringToDecorate -> stringToDecorate.toUpperCase());
-        poemBeautifier.beautify(poem, stringToDecorate -> stringToDecorate.toLowerCase());
+        poemBeautifier.beautify(poem, String::toUpperCase);
+        poemBeautifier.beautify(poem, String::toLowerCase);
         poemBeautifier.beautify(poem, stringToDecorate -> stringToDecorate.replaceFirst("Tekst", "null"));
         System.out.println("----------------------------------------------");
 

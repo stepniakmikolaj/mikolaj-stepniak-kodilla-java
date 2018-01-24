@@ -2,10 +2,7 @@ package com.kodilla.testing.forum.statistics;
 
 import com.kodilla.testing.forum.staitstics.ForumStatistics;
 import com.kodilla.testing.forum.staitstics.Statistics;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;

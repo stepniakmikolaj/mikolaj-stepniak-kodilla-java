@@ -13,7 +13,7 @@ public class WorldTestSuite {
     public void testGetPeopleQuantity() {
         //Given
         Continent europe = new Continent("Europe", Arrays.asList(
-                new Country("C1", new BigDecimal("9876543210")),
+                new Country("C1", new BigDecimal("9874563210")),
                 new Country("C2", new BigDecimal("1234567890")),
                 new Country("C3", new BigDecimal("9638520741")),
                 new Country("C4", new BigDecimal("7410852963"))));
