@@ -1,6 +1,7 @@
 package com.kodilla.stream.beautifier;
 
 public class FunctionalPoemDecorator {
+
     public static String addABCToFronAndEnd(String poem) {
 
         return "ABC "+ poem + "ABC";
