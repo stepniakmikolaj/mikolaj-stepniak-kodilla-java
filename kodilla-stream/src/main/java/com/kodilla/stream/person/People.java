@@ -16,8 +16,7 @@ public final class People {
         theList.add("Declan Booth");
         theList.add("Corinne Foster");
         theList.add("Martin Valenzuela");
-        return new ArrayList<>(theList);
+        return new ArrayList<String>(theList);
 
-        // mod 7.3 niebieska ramka interfejsy funkcyjne w javie
     }
 }
