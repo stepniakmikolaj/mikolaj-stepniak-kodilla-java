@@ -6,7 +6,6 @@ import org.junit.Test;
 import java.math.BigDecimal;
 import java.util.Arrays;
 
-
 public class WorldTestSuite {
 
     @Test

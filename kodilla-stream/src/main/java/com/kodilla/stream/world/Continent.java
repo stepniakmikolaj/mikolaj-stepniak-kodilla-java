@@ -12,10 +12,12 @@ public final class Continent {
     }
 
     public String getNameContinent() {
+
         return nameContinent;
     }
 
     public List<Country> getListCountries() {
+
         return ListOfCountries;
     }
 }
