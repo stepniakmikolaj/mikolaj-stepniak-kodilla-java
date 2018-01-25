@@ -29,8 +29,13 @@ public final class ForumUser {
         return sex;
     }
 
-    public boolean getBirthDate(int years) {
-        return LocalDate.now().getYear() - birthDate.getYear() >= years;
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public boolean isAtLeast20YearsOld(){
+        final boolean before = birthDate.plusYears(20).isBefore(LocalDate.now());
+        return before;
     }
 
     public int getPosts() {
@@ -39,12 +44,12 @@ public final class ForumUser {
 
     @Override
     public String toString() {
-        return "ForumUser{" +
-                "uniCode=" + uniCode +
-                ", nameUser='" + nameUser + '\'' +
-                ", sex=" + sex +
-                ", birthDate=" + birthDate +
-                ", posts=" + posts +
-                '}';
+        return "ForumUser {" +
+                " uniCode = " + uniCode +
+                ", nameUser = '" + nameUser + '\'' +
+                ", sex = " + sex +
+                ", birthDate = " + birthDate +
+                ", posts = " + posts +
+                " }";
     }
 }
