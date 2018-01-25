@@ -18,16 +18,12 @@ public class ForumStatistics {
             averageQuantityPostsOnUser = quantityOfPosts / quantityOfUsers;
             averageQuantityCommentsOnUser = quantityOfComments / quantityOfUsers;
             averageQuantityCommentsOnPost = quantityOfComments / quantityOfPosts;
-        } else if (quantityOfUsers == 0) {
-            averageQuantityPostsOnUser = 0;
-            averageQuantityCommentsOnUser = 0;
-            averageQuantityCommentsOnPost = 0;
-        } else if (quantityOfUsers != 0 && quantityOfPosts == 0) {
-            averageQuantityPostsOnUser = 0;
-            averageQuantityCommentsOnUser = 0;
-            averageQuantityCommentsOnPost = 0;
         } else if (quantityOfUsers != 0 && quantityOfPosts != 0 && quantityOfComments == 0) {
             averageQuantityPostsOnUser = quantityOfPosts / quantityOfUsers;
+            averageQuantityCommentsOnUser = 0;
+            averageQuantityCommentsOnPost = 0;
+        } else {
+            averageQuantityPostsOnUser = 0;
             averageQuantityCommentsOnUser = 0;
             averageQuantityCommentsOnPost = 0;
         }

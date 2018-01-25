@@ -13,6 +13,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class ForumStatisticsTestSuite {
+
     private static int testCounter = 0;
 
     @BeforeClass
