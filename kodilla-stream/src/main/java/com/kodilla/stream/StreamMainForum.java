@@ -15,29 +15,25 @@ public class StreamMainForum {
                 .filter(forumUser -> forumUser.getSex() == 'M')
                 .collect(Collectors.toList());
         System.out.println("# of Male users: " + theResultMaleListForum.size() + "\n");
-        theResultMaleListForum.stream()
-                .forEach(System.out::println);
+        theResultMaleListForum.forEach(System.out::println);
 
         List<ForumUser> theResultFemaleListForum = theForum.getList().stream()
                 .filter(forumUser -> forumUser.getSex() == 'F')
                 .collect(Collectors.toList());
         System.out.println("\n# of Female users: " + theResultFemaleListForum.size() + "\n");
-        theResultFemaleListForum.stream()
-                .forEach(System.out::println);
+        theResultFemaleListForum.forEach(System.out::println);
 
         List<ForumUser> theResult20YearListForum = theForum.getList().stream()
                 .filter(forumUser -> forumUser.isAtLeast20YearsOld())
                 .collect(Collectors.toList());
         System.out.println("\n# of 20 Year up users: " + theResult20YearListForum.size() + "\n");
-        theResult20YearListForum.stream()
-                .forEach(System.out::println);
+        theResult20YearListForum.forEach(System.out::println);
 
         List<ForumUser> theResult1PostListForum = theForum.getList().stream()
                 .filter(forumUser -> forumUser.getPosts() > 0)
                 .collect(Collectors.toList());
         System.out.println("\n# of 1 up posts users: " + theResult1PostListForum.size() + "\n");
-        theResult1PostListForum.stream()
-                .forEach(System.out::println);
+        theResult1PostListForum.forEach(System.out::println);
 
         Map<Integer, ForumUser> TheResultMap = theForum.getList().stream()
                 .collect(Collectors.toMap(ForumUser::getUniCode, forumUser -> forumUser));
