@@ -1,25 +1,23 @@
 package com.kodilla.exception.io;
 
-import com.kodilla.exception.FileReaderException;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
-public class FileReader {
+public class FileReaderWithoutHandling {
 
-    public void readFile() throws FileReaderException{
+    public void readFile(){
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(classLoader.getResource("file/names.txt").getFile());
 
         try (Stream<String> fileLines = Files.lines(Paths.get(file.getPath()))){
             fileLines.forEach(System.out::println);
         } catch (IOException e) {
-            throw new FileReaderException();
+            System.out.println("nope: " + e);
         } finally {
-            System.out.println("I'm gonna be here... always. I'm finally");
+            System.out.println("I'm gonna be here.. always I'm finally");
         }
 
 
