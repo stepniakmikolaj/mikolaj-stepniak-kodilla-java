@@ -5,4 +5,5 @@ include 'Mod 2'
 include 'Mod 2'
 include 'Mod 3'
 include 'kodilla-stream'
+include 'kodilla-exception'
 

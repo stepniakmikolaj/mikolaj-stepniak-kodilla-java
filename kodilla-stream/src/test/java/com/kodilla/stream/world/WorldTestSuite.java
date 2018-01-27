@@ -1,10 +1,11 @@
 package com.kodilla.stream.world;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
+
+import static org.junit.Assert.assertEquals;
 
 public class WorldTestSuite {
 
@@ -35,7 +36,7 @@ public class WorldTestSuite {
         BigDecimal allOfThePeople = earth.getPeopleQuantity();
 
         //Then
-        BigDecimal expectedValue = new BigDecimal("69079361877");
-        Assert.assertEquals(expectedValue, allOfThePeople);
+        BigDecimal expectedValue = new BigDecimal("69077381877");
+        assertEquals(expectedValue, allOfThePeople);
     }
 }
