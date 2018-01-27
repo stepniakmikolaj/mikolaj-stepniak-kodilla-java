@@ -3,6 +3,7 @@ package com.kodilla.stream.portfolio;
 import org.junit.Test;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class BoardTestSuite {
                 user1,
                 user2,
                 LocalDate.now().minusDays(20),
-                LocalDate.now().plusDays(5));
+                LocalDate.now().minusDays(5));
         Task task3 = new Task("Temperature entity",
                 "Prepare entity for temperatures",
                 user3,
@@ -114,5 +115,38 @@ public class BoardTestSuite {
         //Then
         assertEquals(1, tasks.size());
         assertEquals("HQLs for analysis", tasks.get(0).getTitle());
+    }
+
+    @Test
+    public void testAddTaskListFindLongTasks(){
+        //Given
+        Board project = prepareTestData();
+        //When
+        List<TaskList> inProgressTasks = new ArrayList<>();
+        inProgressTasks.add(new TaskList("In progress"));
+        long longTask = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(tl -> tl.getTasks().stream())
+                .map(t -> t.getCreated())
+                .filter(d -> d.compareTo(LocalDate.now().minusDays(10)) <= 0)
+                .count();
+        //Then
+        assertEquals(2, longTask);
+    }
+
+    @Test
+    public void testAddTaskListAverageWorkingOnTask(){
+        //Given
+        Board project = prepareTestData();
+        //When
+        List<TaskList> inProgressTasks = new ArrayList<>();
+        inProgressTasks.add(new TaskList("In progress"));
+        double average = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(a -> a.getTasks().stream())
+                .mapToLong(b -> ChronoUnit.DAYS.between(b.getCreated(), LocalDate.now()))
+                .average().orElse(Double.NaN);
+        //Then
+        assertEquals(10, average, 0);
     }
 }
