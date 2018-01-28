@@ -16,7 +16,7 @@ package com.kodilla.exception.test;
             try {
                 result = firstChallenge.divide(3, 0);
             } catch (ArithmeticException aE) {
-                System.out.println(aE + "\nDo not divide by 0");
+                System.out.println("Do not divide by 0\n" + aE);
             } finally {
                 System.out.println(result);
             }
