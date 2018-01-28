@@ -9,35 +9,21 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class StreamMainForum {
-    public static void main(String[] args) {
+
+    public List<ForumUser> getManAtLeast20YearsGotPosts(){
         Forum theForum = new Forum();
         List<ForumUser> theResultMaleListForum = theForum.getList().stream()
                 .filter(forumUser -> forumUser.getSex() == 'M')
-                .collect(Collectors.toList());
-        System.out.println("# of Male users: " + theResultMaleListForum.size() + "\n");
-        theResultMaleListForum.forEach(System.out::println);
-
-        List<ForumUser> theResultFemaleListForum = theForum.getList().stream()
-                .filter(forumUser -> forumUser.getSex() == 'F')
-                .collect(Collectors.toList());
-        System.out.println("\n# of Female users: " + theResultFemaleListForum.size() + "\n");
-        theResultFemaleListForum.forEach(System.out::println);
-
-        List<ForumUser> theResult20YearListForum = theForum.getList().stream()
                 .filter(forumUser -> forumUser.isAtLeast20YearsOld())
-                .collect(Collectors.toList());
-        System.out.println("\n# of 20 Year up users: " + theResult20YearListForum.size() + "\n");
-        theResult20YearListForum.forEach(System.out::println);
-
-        List<ForumUser> theResult1PostListForum = theForum.getList().stream()
                 .filter(forumUser -> forumUser.getPosts() > 0)
                 .collect(Collectors.toList());
-        System.out.println("\n# of 1 up posts users: " + theResult1PostListForum.size() + "\n");
-        theResult1PostListForum.forEach(System.out::println);
+        return theResultMaleListForum;
+    }
 
-        Map<Integer, ForumUser> TheResultMap = theForum.getList().stream()
+    public static void main(String[] args) {
+        StreamMainForum streamMainForum = new StreamMainForum();
+        Map<Integer, ForumUser> TheResultMap = streamMainForum.getManAtLeast20YearsGotPosts().stream()
                 .collect(Collectors.toMap(ForumUser::getUniCode, forumUser -> forumUser));
-        System.out.println("\n# ForumUsers: " + TheResultMap.size() + "\n");
         TheResultMap.entrySet().stream()
                 .map(entry -> "Map entry: key=" + entry.getKey() + ", value= " + entry.getValue())
                 .forEach(System.out::println);
