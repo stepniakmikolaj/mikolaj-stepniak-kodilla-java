@@ -12,9 +12,7 @@ public class ExceptionHandling {
         try {
             System.out.println(secondChallenge.probablyIWillThrowException(1,1.5));
         } catch (Exception e) {
-            System.out.println("(x >= 2 || x < 1 || y == 1.5)" +
-                    "" +
-                    "\nChange double x or double y" + e);
+            System.out.println("(x >= 2 || x < 1 || y == 1.5)\nChange double x or double y" + e);
         } finally {
             System.out.println("I'm finally. I'm always");
         }
