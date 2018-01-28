@@ -25,7 +25,7 @@ public class StreamMainForum {
         Map<Integer, ForumUser> TheResultMap = streamMainForum.getManAtLeast20YearsGotPosts().stream()
                 .collect(Collectors.toMap(ForumUser::getUniCode, forumUser -> forumUser));
         TheResultMap.entrySet().stream()
-                .map(entry -> "Map entry: key=" + entry.getKey() + ", value= " + entry.getValue())
+                .map(entry -> "Map entry: key = " + entry.getKey() + ", value = " + entry.getValue())
                 .forEach(System.out::println);
     }
 }
