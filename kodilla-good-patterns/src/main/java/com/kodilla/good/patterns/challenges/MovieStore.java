@@ -34,17 +34,17 @@ public class MovieStore {
         flashTranslations.add("Błyskawica");
         flashTranslations.add("Flash");
 
-        List<String> someTranslations = new ArrayList<>();
-        someTranslations.add("Jakieś");
-        someTranslations.add("Some");
+        List<String> blackPantherTranslations = new ArrayList<>();
+        blackPantherTranslations.add("Czarna Pantera");
+        blackPantherTranslations.add("Black Panther");
 
         MovieStore movieStore = new MovieStore();
 
         movieStore.addMovieTranslation("IM", ironManTranslations);
         movieStore.addMovieTranslation("AV", avengersTranslations);
         movieStore.addMovieTranslation("FL", flashTranslations);
-        movieStore.addMovieTranslation("SO", someTranslations);
-        movieStore.removeMovieTranslation("SO", someTranslations);
+        movieStore.addMovieTranslation("BP", blackPantherTranslations);
+        movieStore.removeMovieTranslation("BP", blackPantherTranslations);
 
         List<String> movieList = movieStore.getMovies().entrySet().stream()
                 .flatMap(a -> a.getValue().stream())

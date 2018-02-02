@@ -34,34 +34,42 @@ public class MovieStoreTestSuite {
     @Test
     public void testAddMovieTranslation() {
         //Given
-        Map<String, List<String>> booksTitlesWithTranslations = new HashMap<>();
+        MovieStore movieStore = new MovieStore();
         //When
-        booksTitlesWithTranslations.put("IM", ironManTranslations);
-        booksTitlesWithTranslations.put("FL", flashTranslations);
+        movieStore.addMovieTranslation("IM", ironManTranslations);
+        movieStore.addMovieTranslation("AV", avengersTranslations);
+        movieStore.addMovieTranslation("FL", flashTranslations);
+        List<String> movieList = movieStore.getMovies().entrySet().stream()
+                .map(a -> a.getKey())
+                .collect(Collectors.toList());
         //Then
-        assertEquals(2, booksTitlesWithTranslations.size());
+        assertEquals(3, movieList.size());
     }
 
     @Test
     public void testRemoveMovieTranslation() {
         //Given
-        Map<String, List<String>> booksTitlesWithTranslations = new HashMap<>();
+        MovieStore movieStore = new MovieStore();
+        movieStore.addMovieTranslation("IM", ironManTranslations);
+        movieStore.addMovieTranslation("AV", avengersTranslations);
+        movieStore.addMovieTranslation("FL", flashTranslations);
         //When
-        booksTitlesWithTranslations.put("IM", ironManTranslations);
-        booksTitlesWithTranslations.remove("IM", ironManTranslations);
+        movieStore.removeMovieTranslation("IM", ironManTranslations);
+        List<String> movieList = movieStore.getMovies().entrySet().stream()
+                .map(a -> a.getKey())
+                .collect(Collectors.toList());
         //Then
-        assertEquals(0, booksTitlesWithTranslations.size());
+        assertEquals(2, movieList.size());
     }
 
     @Test
     public void testGetMovies() {
         //Given
-        Map<String, List<String>> booksTitlesWithTranslations = new HashMap<>();
-        booksTitlesWithTranslations.put("IM", ironManTranslations);
-        booksTitlesWithTranslations.put("AV", avengersTranslations);
-        booksTitlesWithTranslations.put("FL", flashTranslations);
-        //When
         MovieStore movieStore = new MovieStore();
+        movieStore.addMovieTranslation("IM", ironManTranslations);
+        movieStore.addMovieTranslation("AV", avengersTranslations);
+        movieStore.addMovieTranslation("FL", flashTranslations);
+        //When
         movieStore.getMovies();
         List<String> movieList = movieStore.getMovies().entrySet().stream()
                 .flatMap(a -> a.getValue().stream())
@@ -71,10 +79,10 @@ public class MovieStoreTestSuite {
         for (String e : movieList) {
             stringJoiner.add(e);
         }
-
+        String result = stringJoiner.toString();
         String expectedResult = "Żelazny Człowiek ! Iron Man ! Mściciele ! Avengers ! Błyskawica ! Flash";
         //Then
-        assertEquals(expectedResult, stringJoiner);
+        assertEquals(expectedResult, result);
 
     }
 }
