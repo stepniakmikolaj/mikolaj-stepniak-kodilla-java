@@ -11,8 +11,8 @@ public class MovieStore {
         booksTitlesWithTranslations.put(name, translations);
     }
 
-    public boolean removeMovieTranslation(String name, List<String> translations) {
-        return booksTitlesWithTranslations.remove(name, translations);
+    public List<String> removeMovieTranslation(String name) {
+        return booksTitlesWithTranslations.remove(name);
     }
 
     public Map<String, List<String>> getMovies() {
@@ -44,7 +44,7 @@ public class MovieStore {
         movieStore.addMovieTranslation("AV", avengersTranslations);
         movieStore.addMovieTranslation("FL", flashTranslations);
         movieStore.addMovieTranslation("BP", blackPantherTranslations);
-        movieStore.removeMovieTranslation("BP", blackPantherTranslations);
+        movieStore.removeMovieTranslation("BP");
 
         List<String> movieList = movieStore.getMovies().entrySet().stream()
                 .flatMap(a -> a.getValue().stream())

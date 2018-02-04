@@ -54,7 +54,7 @@ public class MovieStoreTestSuite {
         movieStore.addMovieTranslation("AV", avengersTranslations);
         movieStore.addMovieTranslation("FL", flashTranslations);
         //When
-        movieStore.removeMovieTranslation("IM", ironManTranslations);
+        movieStore.removeMovieTranslation("IM");
         List<String> movieList = movieStore.getMovies().entrySet().stream()
                 .map(a -> a.getKey())
                 .collect(Collectors.toList());
