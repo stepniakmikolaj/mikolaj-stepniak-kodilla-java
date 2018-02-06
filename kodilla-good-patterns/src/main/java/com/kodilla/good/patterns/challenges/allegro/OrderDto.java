@@ -1,6 +1,7 @@
 package com.kodilla.good.patterns.challenges.allegro;
 
 public class OrderDto {
+
     public User user;
     public boolean isBought;
 

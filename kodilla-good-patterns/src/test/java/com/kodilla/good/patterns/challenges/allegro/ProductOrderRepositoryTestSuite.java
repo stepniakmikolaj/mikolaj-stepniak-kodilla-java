@@ -9,8 +9,6 @@ import static org.junit.Assert.*;
 
 public class ProductOrderRepositoryTestSuite {
 
-
-
     public List<Product> allegro = new ArrayList<>();
 
     @Test
