@@ -1,6 +1,5 @@
 package com.kodilla.good.patterns.challenges.flights;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,23 +22,22 @@ public class FlightSearch {
         return arrivals;
     }
 
-    public List<Flight> searchVia(String departureAirport, String viaAirport, String arrivalAirport) {
+    public List<Flight> searchIndirectFlight(String departureAirport, String viaAirport, String arrivalAirport) {
 
         System.out.println("Searching flight from: " + departureAirport.toUpperCase() + " to: " + arrivalAirport.toUpperCase() + " via " + viaAirport.toUpperCase());
 
-        List<Flight> via1 = flightPlan.getFlights().stream()
+        List<Flight> indirectArrivalAirport = flightPlan.getFlights().stream()
                 .filter(f -> f.getDepartureAirport().equalsIgnoreCase(departureAirport))
                 .filter(f -> f.getArrivalAirport().equalsIgnoreCase(viaAirport))
                 .collect(Collectors.toList());
 
-        List<Flight> via2 = flightPlan.getFlights().stream()
+        List<Flight> indirectDepartureAirport = flightPlan.getFlights().stream()
                 .filter(f -> f.getDepartureAirport().equalsIgnoreCase(viaAirport))
                 .filter(f -> f.getArrivalAirport().equalsIgnoreCase(arrivalAirport))
                 .collect(Collectors.toList());
 
-        List<Flight> via = new ArrayList<>(via1);
-        via.addAll(via2);
+        indirectArrivalAirport.addAll(indirectDepartureAirport);
 
-        return via;
+        return indirectArrivalAirport;
     }
 }

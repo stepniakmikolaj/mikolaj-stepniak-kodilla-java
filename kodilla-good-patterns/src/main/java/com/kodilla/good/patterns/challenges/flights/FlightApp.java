@@ -8,7 +8,7 @@ public class FlightApp {
 
         System.out.println(flightSearch.searchDepartures("waw"));
         System.out.println(flightSearch.searchArrival("Gda"));
-        System.out.println(flightSearch.searchVia("WrO", "GDA", "WAW"));
+        System.out.println(flightSearch.searchIndirectFlight("WrO", "gdA", "WaW"));
 
     }
 
