@@ -8,10 +8,12 @@ public class MovieStore {
     Map<String, List<String>> booksTitlesWithTranslations = new HashMap<>();
 
     public void addMovieTranslation(String name, List<String> translations) {
+
         booksTitlesWithTranslations.put(name, translations);
     }
 
     public List<String> removeMovieTranslation(String name) {
+
         return booksTitlesWithTranslations.remove(name);
     }
 

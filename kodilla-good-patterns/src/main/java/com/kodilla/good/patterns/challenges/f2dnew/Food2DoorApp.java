@@ -12,9 +12,7 @@ public class Food2DoorApp {
         suppliers.add(Suppliers.GLUTEN_FREE_FOOD_SHOP);
         suppliers.add(Suppliers.HEALTHY_FOOD_SHOP);
     }
-
-
-
+    
     public static void main(String[] args) {
 
 

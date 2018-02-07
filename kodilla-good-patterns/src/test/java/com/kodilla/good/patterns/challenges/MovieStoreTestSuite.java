@@ -32,37 +32,6 @@ public class MovieStoreTestSuite {
     }
 
     @Test
-    public void testAddMovieTranslation() {
-        //Given
-        MovieStore movieStore = new MovieStore();
-        //When
-        movieStore.addMovieTranslation("IM", ironManTranslations);
-        movieStore.addMovieTranslation("AV", avengersTranslations);
-        movieStore.addMovieTranslation("FL", flashTranslations);
-        List<String> movieList = movieStore.getMovies().entrySet().stream()
-                .map(a -> a.getKey())
-                .collect(Collectors.toList());
-        //Then
-        assertEquals(3, movieList.size());
-    }
-
-    @Test
-    public void testRemoveMovieTranslation() {
-        //Given
-        MovieStore movieStore = new MovieStore();
-        movieStore.addMovieTranslation("IM", ironManTranslations);
-        movieStore.addMovieTranslation("AV", avengersTranslations);
-        movieStore.addMovieTranslation("FL", flashTranslations);
-        //When
-        movieStore.removeMovieTranslation("IM");
-        List<String> movieList = movieStore.getMovies().entrySet().stream()
-                .map(a -> a.getKey())
-                .collect(Collectors.toList());
-        //Then
-        assertEquals(2, movieList.size());
-    }
-
-    @Test
     public void testGetMovies() {
         //Given
         MovieStore movieStore = new MovieStore();
