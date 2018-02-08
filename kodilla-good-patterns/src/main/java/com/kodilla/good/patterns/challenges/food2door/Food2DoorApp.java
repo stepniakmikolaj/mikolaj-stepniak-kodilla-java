@@ -1,36 +1,37 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Food2DoorApp {
 
-    public static void main(String[] args) {
-        OrderService extraFoodService = (orders) -> {
-            System.out.println("Processing Orders from "  + Suppliers.EXTRA_FOOD_SHOP + "..." + orders);
+    private static Map<SupplierType, SupplierProcessor> map = new HashMap<>();
+
+    static {
+        map.put(SupplierType.EXTRA_FOOD_SHOP, new SupplierProcessor((order) -> {
+            System.out.println("Processing Orders from " + SupplierType.EXTRA_FOOD_SHOP + "..." + order);
             return false;
-        };
-        OrderService healthyFoodService = (orders) -> {
-            System.out.println("Processing Orders from "  + Suppliers.HEALTHY_FOOD_SHOP + "..." + orders);
+        }));
+        map.put(SupplierType.HEALTHY_FOOD_SHOP, new SupplierProcessor((order) -> {
+            System.out.println("Processing Orders from " + SupplierType.HEALTHY_FOOD_SHOP + "..." + order);
             return true;
-        };
-        OrderService glutenFreeFoodService = (orders) -> {
-            System.out.println("Processing Orders from "  + Suppliers.GLUTEN_FREE_FOOD_SHOP + "..." + orders);
-            return true;
-        };
+        }));
+        map.put(SupplierType.GLUTEN_FREE_FOOD_SHOP, new SupplierProcessor((order) -> {
+            System.out.println("Processing Orders from " + SupplierType.GLUTEN_FREE_FOOD_SHOP + "..." + order);
+            return false;
+        }));
+    }
 
-        OrderRequestRetriever requestRetriever = new OrderRequestRetriever();
-        Map<String, List<Order>> orders = requestRetriever.retrieve();
+    public static void processOrder(Order order) {
+//        SupplierProcessor supplierProcessor = map.get(order.getProduct().getSupplierType());
+//        supplierProcessor.process(Collections.singletonList(order));
+        map.get(order.getProduct().getSupplierType()).processResult(order);
+    }
 
-        SupplierProcessor extraFoodProcessor = new SupplierProcessor(extraFoodService);
-        SupplierProcessor healthyFoodProcessor = new SupplierProcessor(healthyFoodService);
-        SupplierProcessor glutenFreeFoodProcessor = new SupplierProcessor(glutenFreeFoodService);
+    public static void main(String[] args) {
 
-        extraFoodProcessor.process(orders.get(Suppliers.EXTRA_FOOD_SHOP));
-        extraFoodProcessor.orderProcessResult();
-        healthyFoodProcessor.process(orders.get(Suppliers.HEALTHY_FOOD_SHOP));
-        healthyFoodProcessor.orderProcessResult();
-        glutenFreeFoodProcessor.process(orders.get(Suppliers.GLUTEN_FREE_FOOD_SHOP));
-        glutenFreeFoodProcessor.orderProcessResult();
+        Product product = new Product(SupplierType.GLUTEN_FREE_FOOD_SHOP, "Milk", 3.99);
+        Order order = new Order(product, 12);
+        processOrder(order);
+
     }
 }

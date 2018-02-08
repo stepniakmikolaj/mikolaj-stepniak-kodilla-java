@@ -1,7 +1,5 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
-import java.util.List;
-
 public class SupplierProcessor {
     private final OrderService orderService;
     private boolean orderProcessResult;
@@ -10,11 +8,8 @@ public class SupplierProcessor {
         this.orderService = orderService;
     }
 
-    public void process(List<Order> orders) {
-        orderProcessResult = orderService.execute(orders);
-    }
-
-    public void orderProcessResult() {
+    public void processResult(Order order) {
+        orderProcessResult = orderService.execute(order);
         System.out.println(orderProcessResult ? ProcessResult.SUCCESS : ProcessResult.FAILURE);
     }
 }
