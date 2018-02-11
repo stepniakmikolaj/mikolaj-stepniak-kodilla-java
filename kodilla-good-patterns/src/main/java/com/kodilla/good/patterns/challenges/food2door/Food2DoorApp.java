@@ -17,14 +17,15 @@ public class Food2DoorApp {
         }));
         map.put(SupplierType.GLUTEN_FREE_FOOD_SHOP, new SupplierProcessor((order) -> {
             System.out.println("Processing Orders from " + SupplierType.GLUTEN_FREE_FOOD_SHOP + "..." + order);
-            return false;
+            return true;
         }));
     }
 
     public static void processOrder(Order order) {
 //        SupplierProcessor supplierProcessor = map.get(order.getProduct().getSupplierType());
-//        supplierProcessor.process(Collections.singletonList(order));
-        map.get(order.getProduct().getSupplierType()).processResult(order);
+//        supplierProcessor.processOrder(order);
+        String processResult = map.get(order.getProduct().getSupplierType()).processOrder(order);
+        System.out.println(processResult);
     }
 
     public static void main(String[] args) {
