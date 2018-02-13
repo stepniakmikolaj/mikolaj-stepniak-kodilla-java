@@ -8,8 +8,8 @@ public class SupplierProcessor {
         this.orderService = orderService;
     }
 
-    public String processOrder(Order order) {
+    public ProcessResult processOrder(Order order) {
         orderProcessResult = orderService.execute(order);
-        return orderProcessResult ? ProcessResult.SUCCESS : ProcessResult.FAILURE;
+        return orderProcessResult ? ProcessResult.PROCESS_RESULT_SUCCESS : ProcessResult.PROCESS_RESULT_FAILURE;
     }
 }
