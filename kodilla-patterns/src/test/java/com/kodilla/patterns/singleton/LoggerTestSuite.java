@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class LoggerTestSu {
+public class LoggerTestSuite {
     @BeforeClass
     public static void log() {
         Logger.getInstance().log("abc");
