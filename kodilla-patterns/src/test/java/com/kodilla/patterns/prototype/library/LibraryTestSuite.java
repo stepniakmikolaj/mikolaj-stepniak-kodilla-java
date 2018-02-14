@@ -15,13 +15,13 @@ public class LibraryTestSuite {
         Library library = new Library("Biblioteka Narodowa");
         IntStream.iterate(1, n -> n + 1)
                 .limit(8)
-                .forEach(n -> library.getBooks().add(new Book("Title" + n, "Author" + n, LocalDate.of(2000 + n,1 + n,1 + n))));
+                .forEach(n -> library.getBooks().add(new Book("Title" + n, "Author" + n, LocalDate.of(2000 + n, 1 + n, 1 + n))));
 
         Library clonedLibrary = null;
         try {
             clonedLibrary = library.shallowCopy();
             clonedLibrary.setName("Biblioteka Narodowa shallowCopy()");
-        } catch (CloneNotSupportedException e){
+        } catch (CloneNotSupportedException e) {
             System.out.println(e);
         }
 
@@ -34,7 +34,7 @@ public class LibraryTestSuite {
         }
 
         //W
-        library.getBooks().add(new Book("Title9", "Author9", LocalDate.of(2009,10,10)));
+        library.getBooks().add(new Book("Title9", "Author9", LocalDate.of(2009, 10, 10)));
 
         //T
         System.out.println(library);

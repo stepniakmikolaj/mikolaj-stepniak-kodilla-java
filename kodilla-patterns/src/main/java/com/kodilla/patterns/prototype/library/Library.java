@@ -5,7 +5,7 @@ import com.kodilla.patterns.prototype.Prototype;
 import java.util.HashSet;
 import java.util.Set;
 
-public final class Library extends Prototype{
+public final class Library extends Prototype {
     String name;
     Set<Book> books = new HashSet<>();
 
