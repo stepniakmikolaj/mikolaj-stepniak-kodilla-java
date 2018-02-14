@@ -1,6 +1,6 @@
 package com.kodilla.patterns.singleton;
 
-public class SettingsFileEngine {
+public final class SettingsFileEngine {
     private static SettingsFileEngine settingsFileEngineInstance = null;
     private String fileName = "";
 
