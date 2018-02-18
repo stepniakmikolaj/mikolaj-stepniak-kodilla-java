@@ -27,11 +27,12 @@ public final class Library extends Prototype<Library> {
 
     @Override
     public String toString() {
-        String s = "Library [" + name + "]";
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Library [" + name + "]");
         for (Book book : books) {
-            s = s + "\n" + book.toString();
+            stringBuilder.append("\n" + book.toString());
         }
-        return s;
+        return stringBuilder.toString();
     }
 
     public Library shallowCopy() throws CloneNotSupportedException {
