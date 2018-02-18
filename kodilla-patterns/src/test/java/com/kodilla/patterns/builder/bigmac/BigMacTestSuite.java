@@ -9,23 +9,23 @@ public class BigMacTestSuite {
     public void testBigMacNew(){
         //G
         BigMac bigMac = new BigMac.BigMacBuilder()
-                .roll("sesame")
-                .sauce("standard")
+                .roll(Roll.SESAME)
+                .sauce(Sauce.THOUSAND_ISLAND)
                 .burgers(2)
-                .ingedient("onion")
-                .ingedient("tomato")
-                .ingedient("bacon")
-                .ingedient("salad")
-                .ingedient("cheese")
-                .ingedient("pickles")
+                .ingedient(Ingredients.ONION)
+                .ingedient(Ingredients.BACON)
+                .ingedient(Ingredients.CHILLI_PEPPER)
+                .ingedient(Ingredients.PICKLES)
+                .ingedient(Ingredients.CHEESE)
+                .ingedient(Ingredients.SALAD)
                 .build();
         System.out.println(bigMac);
 
         //W
 
         //T
-        assertEquals("sesame", bigMac.getRoll());
-        assertEquals("standard", bigMac.getSauce());
+        assertEquals(Roll.SESAME, bigMac.getRoll());
+        assertEquals(Sauce.THOUSAND_ISLAND, bigMac.getSauce());
         assertEquals(2, bigMac.getBurgers());
         assertEquals(6, bigMac.getIngredients().size());
 

@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class BigMac {
-    private final String roll;
+    private final Roll roll;
     private final int burgers;
-    private final String sauce;
-    private final List<String> ingredients;
+    private final Sauce sauce;
+    private final List<Ingredients> ingredients;
 
     public static class BigMacBuilder{
-        private String roll;
+        private Roll roll;
         private int burgers;
-        private String sauce;
-        private List<String> ingredients = new ArrayList<>();
+        private Sauce sauce;
+        private List<Ingredients> ingredients = new ArrayList<>();
 
-        public BigMacBuilder roll(String roll){
+        public BigMacBuilder roll(Roll roll){
             this.roll = roll;
             return this;
         }
@@ -25,12 +25,12 @@ public final class BigMac {
             return this;
         }
 
-        public BigMacBuilder sauce(String sauce){
+        public BigMacBuilder sauce(Sauce sauce){
             this.sauce = sauce;
             return this;
         }
 
-        public BigMacBuilder ingedient(String ingredient){
+        public BigMacBuilder ingedient(Ingredients ingredient){
             ingredients.add(ingredient);
             return this;
         }
@@ -40,14 +40,14 @@ public final class BigMac {
         }
     }
 
-    private BigMac(final String roll, final int burgers, final String sauce, final List<String> ingredients){
+    private BigMac(final Roll roll, final int burgers, final Sauce sauce, final List<Ingredients> ingredients){
         this.roll = roll;
         this.burgers = burgers;
         this.sauce = sauce;
         this.ingredients = new ArrayList<>(ingredients);
     }
 
-    public String getRoll() {
+    public Roll getRoll() {
         return roll;
     }
 
@@ -55,11 +55,11 @@ public final class BigMac {
         return burgers;
     }
 
-    public String getSauce() {
+    public Sauce getSauce() {
         return sauce;
     }
 
-    public List<String> getIngredients() {
+    public List<Ingredients> getIngredients() {
         return ingredients;
     }
 
