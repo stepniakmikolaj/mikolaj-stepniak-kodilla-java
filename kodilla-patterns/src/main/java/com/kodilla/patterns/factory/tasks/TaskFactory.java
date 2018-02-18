@@ -1,12 +1,9 @@
-package com.kodilla.patterns.factory.tasts;
+package com.kodilla.patterns.factory.tasks;
 
 public final class TaskFactory {
-    public static final String SHOPPING_TASK = "Shopping Task";
-    public static final String PAINTING_TASK = "Painting Task";
-    public static final String DRIVING_TASK = "Driving Task";
 
-    public final Task makeTask(final String taskClass) {
-        switch (taskClass) {
+    public final Task makeTask(final TaskType taskType) {
+        switch (taskType) {
             case SHOPPING_TASK:
                 return new ShoppingTask("Shopping", "Pizza", 100);
             case PAINTING_TASK:
@@ -14,8 +11,7 @@ public final class TaskFactory {
             case DRIVING_TASK:
                 return new DrivingTask("Driving", "Mars", "Bicycle");
             default:
-                return null;
-
+                throw new IllegalArgumentException("Task not found");
         }
     }
 }

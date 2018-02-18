@@ -1,4 +1,4 @@
-package com.kodilla.patterns.factory.tasts;
+package com.kodilla.patterns.factory.tasks;
 
 public final class ShoppingTask implements Task {
     final String taskName;

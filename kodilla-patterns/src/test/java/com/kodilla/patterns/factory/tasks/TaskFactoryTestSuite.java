@@ -1,4 +1,4 @@
-package com.kodilla.patterns.factory.tasts;
+package com.kodilla.patterns.factory.tasks;
 
 import org.junit.Test;
 
@@ -10,7 +10,7 @@ public class TaskFactoryTestSuite {
         //G
         TaskFactory factory = new TaskFactory();
         //W
-        Task shopping = factory.makeTask(TaskFactory.SHOPPING_TASK);
+        Task shopping = factory.makeTask(TaskType.SHOPPING_TASK);
         //T
         assertEquals("Shopping", shopping.getTaskName());
         assertEquals("Buying: Pizza quantity: 100.0", shopping.executeTask());
@@ -22,7 +22,7 @@ public class TaskFactoryTestSuite {
         //G
         TaskFactory factory = new TaskFactory();
         //W
-        Task painting = factory.makeTask(TaskFactory.PAINTING_TASK);
+        Task painting = factory.makeTask(TaskType.PAINTING_TASK);
         //T
         assertEquals("Painting", painting.getTaskName());
         assertEquals("I'm painting: Submarine color: Yellow", painting.executeTask());
@@ -34,7 +34,7 @@ public class TaskFactoryTestSuite {
         //G
         TaskFactory factory = new TaskFactory();
         //W
-        Task driving = factory.makeTask(TaskFactory.DRIVING_TASK);
+        Task driving = factory.makeTask(TaskType.DRIVING_TASK);
         //T
         assertEquals("Driving", driving.getTaskName());
         assertEquals("I'm driving to: Mars by: Bicycle", driving.executeTask());
