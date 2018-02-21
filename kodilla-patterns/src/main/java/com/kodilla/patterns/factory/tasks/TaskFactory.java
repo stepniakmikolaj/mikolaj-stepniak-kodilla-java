@@ -11,7 +11,7 @@ public final class TaskFactory {
             case DRIVING_TASK:
                 return new DrivingTask("Driving", "Mars", "Bicycle");
             default:
-                throw new IllegalArgumentException("Task not found");
+                throw new IllegalArgumentException("Task not found" + taskType);
         }
     }
 }
