@@ -3,7 +3,7 @@ package com.kodilla.rps;
 import com.kodilla.rps.exception.InvalidChoiceTypeException;
 
 public enum ChoiceType {
-    SCISSORS("3"), PAPER("2"), ROCK("1");
+    SCISSORS("3"), PAPER("2"), ROCK("1"), DEFAULT("0");
 
     private final String id;
 

@@ -4,8 +4,14 @@ import com.kodilla.rps.ChoiceType;
 import com.kodilla.rps.exception.InvalidChoiceTypeException;
 
 public abstract class Player {
-    protected String username = "CPU";
+    protected String username;
     private int wins = 0;
+
+    public Player(String username) {
+        this.username = username;
+    }
+
+    abstract public ChoiceType play();
 
     public void increaseWins() {
         this.wins++;
@@ -19,13 +25,17 @@ public abstract class Player {
         return wins;
     }
 
-    public ChoiceType play(String value) {
-        try {
-            return ChoiceType.getChoiceByValue(value);
-        } catch (InvalidChoiceTypeException e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace();
-            return null;
-        }
+//    public ChoiceType play(String value) {
+//        try {
+//            return ChoiceType.getChoiceByValue(value);
+//        } catch (InvalidChoiceTypeException e) {
+//            System.out.println(e.getMessage());
+//            e.printStackTrace();
+//            return null;
+//        }
+//    }
+
+    public void resetWins() {
+        this.wins = 0;
     }
 }

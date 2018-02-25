@@ -6,7 +6,13 @@ import com.kodilla.rps.exception.InvalidChoiceTypeException;
 import java.util.Random;
 
 public class Computer extends Player {
-    public ChoiceType playRandom() {
+
+    public Computer(String username) {
+        super(username);
+    }
+
+    @Override
+    public ChoiceType play() {
         try {
             return ChoiceType.getChoiceByValue(String.valueOf(new Random().nextInt(3) + 1));
         } catch (InvalidChoiceTypeException e) {
