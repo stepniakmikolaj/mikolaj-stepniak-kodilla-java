@@ -1,10 +1,7 @@
 package com.kodilla.spring.calculator;
 
-
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -44,7 +41,7 @@ public class CalculatorTestSuite {
         //W
         double result = calculator.mul(10.0, 5.0);
         //T
-        Assert.assertEquals(50.0, result, 0.01);
+        assertEquals(50.0, result, 0.01);
     }
 
     @Test
