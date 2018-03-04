@@ -22,19 +22,19 @@ public class Invoice {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "INVIOCE_ID", unique = true)
+    @Column(name = "ID", unique = true)
     public int getId() {
         return id;
     }
 
     @NotNull
-    @Column(name = "INVIOCE_NUMBER")
+    @Column(name = "NUMBER")
     public String getNumber() {
         return number;
     }
 
     @OneToMany(
-            targetEntity = Item.class,
+//            targetEntity = Item.class,
             mappedBy = "invoice",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY

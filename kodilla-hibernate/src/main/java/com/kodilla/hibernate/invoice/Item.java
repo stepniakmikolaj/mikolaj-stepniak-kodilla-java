@@ -27,12 +27,13 @@ public class Item {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "ITEM_ID", unique = true)
+    @Column(name = "ID", unique = true)
     public int getId() {
         return id;
     }
 
     @ManyToOne(
+//            targetEntity = Product.class,
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER
     )

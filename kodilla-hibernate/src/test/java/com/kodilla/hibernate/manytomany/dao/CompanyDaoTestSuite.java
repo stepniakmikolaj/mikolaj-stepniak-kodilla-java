@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
@@ -56,6 +58,40 @@ public class CompanyDaoTestSuite {
             companyDao.delete(softwareMachineId);
             companyDao.delete(dataMaestersId);
             companyDao.delete(greyMatterId);
+        } catch (Exception e) {
+            //do nothing
+        }
+    }
+
+    @Test
+    public void testNativeQuery(){
+        //G
+        Company softwareMachine = new Company("Software Machine");
+        Company dataMaesters = new Company("Data Maesters");
+        Company greyMatter = new Company("Grey Matter");
+        Company decathlon = new Company("Decathlon");
+
+        companyDao.save(softwareMachine);
+        int softwareMachineId = softwareMachine.getId();
+        companyDao.save(dataMaesters);
+        int dataMaestersId = dataMaesters.getId();
+        companyDao.save(greyMatter);
+        int greyMatterId = greyMatter.getId();
+        companyDao.save(decathlon);
+        int decathlonId = decathlon.getId();
+
+        //W
+        List<Company> result = companyDao.searchByThreeFirstLetters("Dec");
+
+        //T
+        assertEquals(1, result.size());
+
+        //Cup
+        try {
+            companyDao.delete(softwareMachineId);
+            companyDao.delete(dataMaestersId);
+            companyDao.delete(greyMatterId);
+            companyDao.delete(decathlonId);
         } catch (Exception e) {
             //do nothing
         }

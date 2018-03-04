@@ -22,19 +22,19 @@ public class Product {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "PRODUCT_ID", unique = true)
+    @Column(name = "ID", unique = true)
     public int getId() {
         return id;
     }
 
     @NotNull
-    @Column(name = "PRODUCT_NAME")
+    @Column(name = "NAME")
     public String getName() {
         return name;
     }
 
     @OneToMany(
-            targetEntity = Item.class,
+//            targetEntity = Item.class,
             mappedBy = "product",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
@@ -50,7 +50,6 @@ public class Product {
     public void setName(String name) {
         this.name = name;
     }
-
 
     private void setItems(List<Item> items) {
         this.items = items;
