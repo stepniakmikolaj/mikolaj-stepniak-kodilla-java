@@ -69,29 +69,20 @@ public class CompanyDaoTestSuite {
         Company softwareMachine = new Company("Software Machine");
         Company dataMaesters = new Company("Data Maesters");
         Company greyMatter = new Company("Grey Matter");
-        Company decathlon = new Company("Decathlon");
 
         companyDao.save(softwareMachine);
-        int softwareMachineId = softwareMachine.getId();
         companyDao.save(dataMaesters);
-        int dataMaestersId = dataMaesters.getId();
         companyDao.save(greyMatter);
-        int greyMatterId = greyMatter.getId();
-        companyDao.save(decathlon);
-        int decathlonId = decathlon.getId();
 
         //W
-        List<Company> result = companyDao.searchByThreeFirstLetters("Dec");
+        List<Company> result = companyDao.searchByThreeFirstLetters("Sof");
 
         //T
         assertEquals(1, result.size());
 
         //Cup
         try {
-            companyDao.delete(softwareMachineId);
-            companyDao.delete(dataMaestersId);
-            companyDao.delete(greyMatterId);
-            companyDao.delete(decathlonId);
+            companyDao.deleteAll();
         } catch (Exception e) {
             //do nothing
         }
