@@ -33,7 +33,6 @@ public class Item {
     }
 
     @ManyToOne(
-//            targetEntity = Product.class,
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER
     )

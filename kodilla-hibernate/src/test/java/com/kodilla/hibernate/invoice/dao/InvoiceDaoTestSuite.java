@@ -28,7 +28,7 @@ public class InvoiceDaoTestSuite {
         Item item1 = new Item(product1, new BigDecimal(3999), 1, new BigDecimal(3999));
         Item item2 = new Item(product2, new BigDecimal(299), 1, new BigDecimal(299));
         Item item3 = new Item(product3, new BigDecimal(199), 1, new BigDecimal(199));
-        Invoice invoice = new Invoice("56-03/03/2018");
+        Invoice invoice = new Invoice("001-03/03/2018");
         item1.setInvoice(invoice);
         item2.setInvoice(invoice);
         item3.setInvoice(invoice);
@@ -44,6 +44,6 @@ public class InvoiceDaoTestSuite {
         assertNotEquals(0, invoiceId);
 
         //CleanUp
-        invoiceDao.delete(invoiceId);
+        invoiceDao.deleteAll();
     }
 }
