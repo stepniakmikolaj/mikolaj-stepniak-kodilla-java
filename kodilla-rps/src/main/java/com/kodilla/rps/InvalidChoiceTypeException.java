@@ -1,4 +1,4 @@
-package com.kodilla.rps.exception;
+package com.kodilla.rps;
 
 public class InvalidChoiceTypeException extends Exception {
     public InvalidChoiceTypeException() {
