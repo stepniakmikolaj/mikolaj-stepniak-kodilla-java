@@ -8,24 +8,33 @@ public class GameCode {
     private int userScore = 0;
     private int computerScore = 0;
 
-    public boolean run(Messages messages, Scanner scanner, String playerName) {
+    /**
+     * game loop.
+     *
+     * @param display    get all needed display methods.
+     * @param scanner    get values from player.
+     * @param playerName playerName in game.
+     * @return end game.
+     */
+    public boolean run(final Display display, final Scanner scanner, final String playerName) {
         userScore = 0;
         computerScore = 0;
-        int roundsPerGame = messages.askForNumberOfRounds(playerName);
+        int roundsPerGame = display.askForNumberOfRounds(playerName);
 
         ValidateGameControllers validateGameControllers = new ValidateGameControllers();
 
-        messages.mainMenu();
+        display.mainMenu();
 
         int roundCount = 0;
         boolean end = false;
         boolean exit = false;
         String userInput;
-        Shapes userShape, computerShape = null;
+        Shapes userShape;
+        Shapes computerShape = null;
         ShapeGenerator shapeGenerator = new ShapeGenerator();
         while (!end) {
             roundCount++;
-            userInput = validateGameControllers.validateGameInput(scanner.nextLine(), scanner, messages);
+            userInput = validateGameControllers.validateGameInput(scanner.nextLine(), scanner, display);
             switch (userInput) {
 
                 case EXIT:
@@ -45,17 +54,19 @@ public class GameCode {
                         e.printStackTrace();
                         System.out.println("Invalid choice generated.");
                     }
-                    messages.showRoundResult(userShape, computerShape);
+                    display.showRoundResult(userShape, computerShape);
                     if (!userShape.equals(computerShape)) {
-                        if (userShape.equals(Shapes.ROCK) && computerShape.equals(Shapes.SCISSORS) || userShape.equals(Shapes.SCISSORS) && computerShape.equals(Shapes.PAPER) || userShape.equals(Shapes.PAPER) && computerShape.equals(Shapes.ROCK)) {
+                        if (userShape.equals(Shapes.ROCK) && computerShape.equals(Shapes.SCISSORS) ||
+                                userShape.equals(Shapes.SCISSORS) && computerShape.equals(Shapes.PAPER) ||
+                                userShape.equals(Shapes.PAPER) && computerShape.equals(Shapes.ROCK)) {
                             userScore++;
-                            messages.userWinsMessage(playerName, userScore, computerScore);
+                            display.userWinsMessage(playerName, userScore, computerScore);
                         } else {
                             computerScore++;
-                            messages.computerWinsMessage(playerName, userScore, computerScore);
+                            display.computerWinsMessage(playerName, userScore, computerScore);
                         }
                     } else {
-                        messages.drawMessage(playerName, userScore, computerScore);
+                        display.drawMessage(playerName, userScore, computerScore);
                     }
             }
             if (roundsPerGame == userScore || roundsPerGame == computerScore) {
@@ -63,8 +74,8 @@ public class GameCode {
                 break;
             }
         }
-        messages.displayScores(userScore, computerScore);
-        userInput = validateGameControllers.validateEndOfGameChoice(scanner.nextLine(), scanner, messages);
+        display.displayScores(userScore, computerScore);
+        userInput = validateGameControllers.validateEndOfGameChoice(scanner.nextLine(), scanner, display);
 
         if (userInput.equals(EXIT)) {
             exit = true;

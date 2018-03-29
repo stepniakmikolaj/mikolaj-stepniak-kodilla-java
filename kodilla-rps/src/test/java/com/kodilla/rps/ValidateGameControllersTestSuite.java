@@ -5,18 +5,21 @@ import org.junit.Test;
 
 import java.util.Scanner;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class ValidateGameControllersTestSuite {
     private ValidateGameControllers validateGameControllers;
     private Scanner scanner;
-    private Messages messages;
+    private Display display;
 
+    /**
+     * testing game.
+     */
     @Before
     public void setUp() {
         validateGameControllers = new ValidateGameControllers();
         scanner = new Scanner("Y");
-        messages = new Messages();
+        display = new Display();
     }
 
     @Test
@@ -36,36 +39,36 @@ public class ValidateGameControllersTestSuite {
 
     @Test
     public void testValidateGameStoneInput() {
-        assertEquals("ROCK", validateGameControllers.validateGameInput("1", scanner, messages));
+        assertEquals("ROCK", validateGameControllers.validateGameInput("1", scanner, display));
     }
 
     @Test
     public void testValidateGamePaperInput() {
-        assertEquals("PAPER", validateGameControllers.validateGameInput("2", scanner, messages));
+        assertEquals("PAPER", validateGameControllers.validateGameInput("2", scanner, display));
     }
 
     @Test
     public void testValidateGameScissorsInput() {
-        assertEquals("SCISSORS", validateGameControllers.validateGameInput("3", scanner, messages));
+        assertEquals("SCISSORS", validateGameControllers.validateGameInput("3", scanner, display));
     }
 
     @Test
     public void testValidateGamExitInput() {
-        assertEquals("x", validateGameControllers.validateGameInput("x", scanner, messages));
+        assertEquals("x", validateGameControllers.validateGameInput("x", scanner, display));
     }
 
     @Test
     public void testValidateGameNewInput() {
-        assertEquals("n", validateGameControllers.validateGameInput("n", scanner, messages));
+        assertEquals("n", validateGameControllers.validateGameInput("n", scanner, display));
     }
 
     @Test
     public void testValidateEndOfGameNewGameChoice() {
-        assertEquals("n", validateGameControllers.validateEndOfGameChoice("n", scanner, messages));
+        assertEquals("n", validateGameControllers.validateEndOfGameChoice("n", scanner, display));
     }
 
     @Test
     public void testValidateEndOfGameQuitChoice() {
-        assertEquals("x", validateGameControllers.validateEndOfGameChoice("x", scanner, messages));
+        assertEquals("x", validateGameControllers.validateEndOfGameChoice("x", scanner, display));
     }
 }

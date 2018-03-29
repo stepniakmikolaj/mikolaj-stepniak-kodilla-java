@@ -4,17 +4,22 @@ import java.util.Scanner;
 
 public class RpsGame {
 
-    public static void main(String[] args) {
+    /**
+     * main method runs game.
+     *
+     * @param args the command line arguments.
+     */
+    public static void main(final String[] args) {
 
-        Messages messages = new Messages();
-        Scanner scanner = new Scanner(System.in);
+        Display display = new Display();
+        Scanner scanner = new Scanner(System.in);//bug
         boolean exit = false;
 
-        messages.welcomeMessage();
+        display.welcomeMessage();
         String playerName = scanner.nextLine();
         while (!exit) {
             GameCode gameCode = new GameCode();
-            exit = gameCode.run(messages, scanner, playerName);
+            exit = gameCode.run(display, scanner, playerName);
         }
     }
 }

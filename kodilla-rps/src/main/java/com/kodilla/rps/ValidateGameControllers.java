@@ -10,7 +10,12 @@ public class ValidateGameControllers {
     private static final String CHOICE_2 = "2";
     private static final String CHOICE_3 = "3";
 
-
+    /**
+     * opis metody.
+     *
+     * @param roundsNumber opis parametru.
+     * @return number.
+     */
     public int validateNumber(String roundsNumber) {
         if (roundsNumber.isEmpty()) {
             return 0;
@@ -25,7 +30,15 @@ public class ValidateGameControllers {
         return Integer.parseInt(roundsNumber);
     }
 
-    public String validateGameInput(String input, Scanner scanner, Messages messages) {
+    /**
+     * validate player input values in game.
+     *
+     * @param input   processes values from player.
+     * @param scanner get values from player.
+     * @param display get all needed display methods.
+     * @return user choice, exit or new game.
+     */
+    public String validateGameInput(String input, final Scanner scanner, final Display display) {
         while (true) {
             switch (input) {
                 case CHOICE_1:
@@ -35,41 +48,53 @@ public class ValidateGameControllers {
                 case CHOICE_3:
                     return Shapes.SCISSORS.name();
                 case EXIT:
-                    messages.quitConfirmationMessage();
-                    input = scanner.nextLine();
-                    if (input.toUpperCase().equals(YES)) { return EXIT; }
-                    break;
-                case NEW_GAME:
-                    messages.newGameConfirmationMessage();
-                    input = scanner.nextLine();
-                    if (input.toUpperCase().equals(YES)) { return NEW_GAME; }
-                    break;
-                default:
-                    messages.incorrectGameInput();
-                    input = scanner.nextLine();
-            }
-        }
-    }
-
-    public String validateEndOfGameChoice(String input, Scanner scanner, Messages messages) {
-        while (true) {
-            switch (input) {
-                case EXIT:
-                    messages.quitConfirmationMessage();
+                    display.quitConfirmationMessage();
                     input = scanner.nextLine();
                     if (input.toUpperCase().equals(YES)) {
                         return EXIT;
                     }
                     break;
                 case NEW_GAME:
-                    messages.newGameConfirmationMessage();
+                    display.newGameConfirmationMessage();
                     input = scanner.nextLine();
                     if (input.toUpperCase().equals(YES)) {
                         return NEW_GAME;
                     }
                     break;
                 default:
-                    messages.incorrectEndOfGameInput();
+                    display.incorrectGameInput();
+                    input = scanner.nextLine();
+            }
+        }
+    }
+
+    /**
+     * validate player want to end game.
+     *
+     * @param input   processes values from player.
+     * @param scanner get values from player.
+     * @param display get all needed display methods.
+     * @return exit or new game.
+     */
+    public String validateEndOfGameChoice(String input, final Scanner scanner, final Display display) {
+        while (true) {
+            switch (input) {
+                case EXIT:
+                    display.quitConfirmationMessage();
+                    input = scanner.nextLine();
+                    if (input.toUpperCase().equals(YES)) {
+                        return EXIT;
+                    }
+                    break;
+                case NEW_GAME:
+                    display.newGameConfirmationMessage();
+                    input = scanner.nextLine();
+                    if (input.toUpperCase().equals(YES)) {
+                        return NEW_GAME;
+                    }
+                    break;
+                default:
+                    display.incorrectEndOfGameInput();
                     input = scanner.nextLine();
             }
         }
