@@ -1,5 +1,6 @@
 package com.kodilla.rps;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class Display {
@@ -15,7 +16,7 @@ public class Display {
      * @return how many wins rounds player want to play.
      */
     public static int askForNumberOfRounds(final String playerName) {
-        Scanner scanner = new Scanner(System.in);//bug
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8.name());
         int rounds;
         System.out.print("Welcome " + playerName.toUpperCase() + " to how many won rounds you want to play?: \n".toUpperCase());
         while (!scanner.hasNextInt() || (rounds = scanner.nextInt()) < 1) {

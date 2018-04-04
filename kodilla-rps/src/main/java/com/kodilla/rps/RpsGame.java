@@ -1,5 +1,6 @@
 package com.kodilla.rps;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class RpsGame {
@@ -12,7 +13,7 @@ public class RpsGame {
     public static void main(final String[] args) {
 
         Display display = new Display();
-        Scanner scanner = new Scanner(System.in);//bug
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8.name());
         boolean exit = false;
 
         display.welcomeMessage();
