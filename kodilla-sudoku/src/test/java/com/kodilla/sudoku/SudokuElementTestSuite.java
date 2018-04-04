@@ -2,7 +2,9 @@ package com.kodilla.sudoku;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 public class SudokuElementTestSuite {
 
@@ -38,9 +40,9 @@ public class SudokuElementTestSuite {
         sudokuElement9.setValue(0);
 
         // Then
-        assertEquals(1,sudokuElement0.getValue());
-        assertEquals(9,sudokuElement1.getValue());
-        assertEquals(0,sudokuElement9.getValue());
+        assertEquals(1, sudokuElement0.getValue());
+        assertEquals(9, sudokuElement1.getValue());
+        assertEquals(0, sudokuElement9.getValue());
     }
 
     @Test
@@ -87,9 +89,9 @@ public class SudokuElementTestSuite {
         SudokuElement sudokuElement9 = new SudokuElement(9);
 
         // When and Then
-        assertEquals(0,sudokuElement0.getValue());
-        assertEquals(1,sudokuElement1.getValue());
-        assertEquals(9,sudokuElement9.getValue());
+        assertEquals(0, sudokuElement0.getValue());
+        assertEquals(1, sudokuElement1.getValue());
+        assertEquals(9, sudokuElement9.getValue());
     }
 
     @Test
@@ -100,9 +102,9 @@ public class SudokuElementTestSuite {
         SudokuElement sudokuElement9 = new SudokuElement(9);
 
         // When and Then
-        assertEquals(9,sudokuElement0.getAvailableValues().size());
-        assertEquals(9,sudokuElement1.getAvailableValues().size());
-        assertEquals(9,sudokuElement9.getAvailableValues().size());
+        assertEquals(9, sudokuElement0.getAvailableValues().size());
+        assertEquals(9, sudokuElement1.getAvailableValues().size());
+        assertEquals(9, sudokuElement9.getAvailableValues().size());
 
     }
 

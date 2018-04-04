@@ -6,13 +6,13 @@ import java.util.List;
 public class SudokuSolver {
     List<List<SudokuElement>> sudokuArray = new ArrayList<>();
 
-    public SudokuSolver(List<List<SudokuElement>> sudokuArray) {
+    public SudokuSolver(final List<List<SudokuElement>> sudokuArray) {
         this.sudokuArray = sudokuArray;
     }
 
-    boolean isAvailable(int row, int column, int value) {
+    boolean isAvailable(final int row, final int column, final int value) {
         boolean isAvailable = true;
-        for(int i = 0; i < 9; i++) {
+        for (int i = 0; i < 9; i++) {
             if (value == sudokuArray.get(row).get(i).getValue() || value == sudokuArray.get(i).get(column).getValue()) {
                 isAvailable = false;
             }
@@ -27,21 +27,33 @@ public class SudokuSolver {
         return isAvailable;
     }
 
-    public boolean nextSudokuElement(int row, int column) {
+    /**
+     * opis metody.
+     * @param row opis parametru.
+     * @param column opis parametru.
+     * @return zwraca to.
+     */
+    public boolean nextSudokuElement(final int row, final int column) {
         if (row == 8 && column == 8) {
             return true;
         } else if (column == 8) {
-            return solveSudoku( row + 1, 0);
+            return solveSudoku(row + 1, 0);
         } else {
             return solveSudoku(row, column + 1);
         }
     }
 
-    public boolean solveSudoku(int row, int column) {
+    /**
+     * opis metody.
+     * @param row opis parametru.
+     * @param column opis parametru.
+     * @return zwraca to.
+     */
+    public boolean solveSudoku(final int row, final int column) {
         SudokuElement sudokuElement = sudokuArray.get(row).get(column);
-        if (sudokuElement.getValue()==0) {
-            for (int i=1; i<10; i++) {
-                if (isAvailable(row,column,i)) {
+        if (sudokuElement.getValue() == 0) {
+            for (int i = 1; i < 10; i++) {
+                if (isAvailable(row, column, i)) {
                     sudokuElement.setValue(i);
                     if (nextSudokuElement(row, column)) {
                         return true;

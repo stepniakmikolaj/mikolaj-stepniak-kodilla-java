@@ -9,10 +9,15 @@ public class SudokuGameCode {
     private int subArrayRowOffset;
     private int subArrayColumnOffset;
 
+    /**
+     * Prints sudoku board.
+     */
     public void printArray() {
         List<SudokuElement> row;
         System.out.println("\n  _____________________________________SUDOKU SOLVER 1.0_____________________________________");
-        System.out.println("  r \\ c    1   2   3   4   5   6   7   8   9           |Sudoku Game Controllers:\n                                                       |.....................................");
+        System.out.println("  r \\ c    1   2   3   4   5   6   7   8   9           " +
+                "|Sudoku Game Controllers:\n                                                       " +
+                "|.....................................");
         for (int rowIndex = 0; rowIndex < 9; rowIndex++) {
             row = sudokuArray.get(rowIndex);
             System.out.print("  " + (rowIndex + 1) + "      |");
@@ -51,15 +56,18 @@ public class SudokuGameCode {
                         case 8:
                             System.out.print("         |......................................");
                             break;
+                        default:
+                            System.out.println("default");
+                            break;
                     }
                 }
             }
             System.out.println("");
         }
-        System.out.println("");
+        System.out.println("Enter here: ");
     }
 
-    private void addToAffectedElements(int currentValue, int row, int column) {
+    private void addToAffectedElements(final int currentValue, final int row, final int column) {
         for (int columnIndex = 0; columnIndex < 9; columnIndex++) {
             sudokuArray.get(row).get(columnIndex).addToAvailableValues(currentValue);
         }
@@ -73,7 +81,7 @@ public class SudokuGameCode {
         }
     }
 
-    private void updateAffectedElements(int currentValue, int insertValue, int row, int column) {
+    private void updateAffectedElements(final int currentValue, final int insertValue, final int row, final int column) {
         subArrayRowOffset = row / 3 * 3;
         subArrayColumnOffset = column / 3 * 3;
 
@@ -93,8 +101,16 @@ public class SudokuGameCode {
         }
     }
 
-    public List<List<SudokuElement>> fillSudokuArray(String command) {
-        int row, column, currentValue, insertValue;
+    /**
+     * Fills sudoku board and validate values.
+     * @param command user insert values.
+     * @return validated values in board.
+     */
+    public List<List<SudokuElement>> fillSudokuArray(final String command) {
+        int row;
+        int column;
+        int currentValue;
+        int insertValue;
 
         try {
             for (int stringIndex = 0; stringIndex < command.length() / 4; stringIndex++) {
@@ -109,10 +125,14 @@ public class SudokuGameCode {
                     if (sudokuArray.get(row).get(column).setValue(insertValue)) {
                         updateAffectedElements(currentValue, insertValue, row, column);
                     } else {
-                        System.out.println("Illegal to insert " + insertValue + " to row " + (row + 1) + ", column " + (column + 1) + " due to an other existing value. Please try something else..");
+                        System.out.println("Illegal to insert " + insertValue +
+                                " to row " + (row + 1) + ", column " + (column + 1) +
+                                " due to an other existing value. Please try something else..");
                     }
                 } else {
-                    System.out.println("Impossible to insert " + insertValue + " (row " + (row + 1) + ", column " + (column + 1) + "). Please try something else..");
+                    System.out.println("Impossible to insert " + insertValue +
+                            " (row " + (row + 1) + ", column " + (column + 1) +
+                            "). Please try something else..");
                 }
             }
         } catch (Exception e) {
@@ -121,6 +141,10 @@ public class SudokuGameCode {
         return sudokuArray;
     }
 
+    /**
+     * Create new game.
+     * @return empty sudoku board.
+     */
     public List<List<SudokuElement>> createNewGame() {
 
         sudokuArray = new ArrayList<>();

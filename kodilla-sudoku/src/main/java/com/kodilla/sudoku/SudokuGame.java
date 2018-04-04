@@ -1,16 +1,20 @@
 package com.kodilla.sudoku;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Scanner;
 
 public class SudokuGame {
-
-    public static void main(String[] args) {
+    /**
+     * Main method to start game.
+     * @param args all methods needed for run game.
+     */
+    public static void main(final String[] args) {
 
         boolean gameFinished = false;
         List<List<SudokuElement>> sudokuArray;
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8.name());
         CommandValidator commandValidator = new CommandValidator();
         SudokuGameCode sudokuGameCode = new SudokuGameCode();
 

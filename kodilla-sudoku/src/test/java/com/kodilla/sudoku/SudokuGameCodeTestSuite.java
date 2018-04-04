@@ -4,17 +4,20 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class SudokuGameCodeTestSuite {
-
-    public void printAllAvailabilities(List<List<SudokuElement>> sudokuArray) {
+    /**
+     * Print all availabilities numbers in sudoku.
+     * @param sudokuArray sudoku board.
+     */
+    public void printAllAvailabilities(final List<List<SudokuElement>> sudokuArray) {
         String availableArray;
 
         for (int rowIndex = 0; rowIndex < 9; rowIndex++) {
             for (int columnIndex = 0; columnIndex < 9; columnIndex++) {
                 availableArray = sudokuArray.get(rowIndex).get(columnIndex).getAvailableValues().toString();
-                for (int i=availableArray.length(); i< 29; i++) {
+                for (int i = availableArray.length(); i < 29; i++) {
                     availableArray = availableArray + " ";
                 }
                 System.out.print(availableArray + " ");
@@ -24,7 +27,7 @@ public class SudokuGameCodeTestSuite {
     }
 
     @Test
-    public void testFillSudokuArrayFirst3x3 () {
+    public void testFillSudokuArrayFirst3x3() {
         //Given
         SudokuGameCode sudokuGameCode = new SudokuGameCode();
         sudokuGameCode.createNewGame();
@@ -45,14 +48,14 @@ public class SudokuGameCodeTestSuite {
     }
 
     @Test
-    public void testSudokuElementAvailableValues () {
+    public void testSudokuElementAvailableValues() {
         //Given
         SudokuGameCode sudokuGameCode = new SudokuGameCode();
         sudokuGameCode.createNewGame();
 
         //When
 
-        sudokuGameCode.fillSudokuArray( "441,452,463,544,555,566,647,658,669,");
+        sudokuGameCode.fillSudokuArray("441,452,463,544,555,566,647,658,669,");
         sudokuGameCode.printArray();
 
         //Then
