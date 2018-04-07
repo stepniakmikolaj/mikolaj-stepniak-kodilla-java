@@ -11,10 +11,10 @@ public class ValidateGameControllers {
     private static final String CHOICE_3 = "3";
 
     /**
-     * opis metody.
+     * Validate allowed value of rounds.
      *
-     * @param roundsNumber opis parametru.
-     * @return number.
+     * @param roundsNumber number of rounds input by player.
+     * @return validated number of rounds.
      */
     public int validateNumber(String roundsNumber) {
         if (roundsNumber.isEmpty()) {
@@ -31,7 +31,7 @@ public class ValidateGameControllers {
     }
 
     /**
-     * validate player input values in game.
+     * Validate player input values in game.
      *
      * @param input   processes values from player.
      * @param scanner get values from player.
@@ -69,7 +69,7 @@ public class ValidateGameControllers {
     }
 
     /**
-     * validate player want to end game.
+     * Validate player want to end game.
      *
      * @param input   processes values from player.
      * @param scanner get values from player.
