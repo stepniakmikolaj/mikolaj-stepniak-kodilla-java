@@ -2,8 +2,6 @@ package com.kodilla.sudoku;
 
 import org.junit.Test;
 
-import java.util.List;
-
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 
@@ -12,12 +10,12 @@ public class SudokuSolverTestSuite {
     public void isAvailable() {
         // Given
         SudokuGameCode sudokuGameCode = new SudokuGameCode();
-        List<List<SudokuElement>> sudokuArray = sudokuGameCode.createNewGame();
+        SudokuBoard sudokuBoard = sudokuGameCode.createNewGame();
 
         // When
 
-        sudokuArray.get(0).get(0).setValue(1);
-        SudokuSolver sudokuSolver = new SudokuSolver(sudokuArray);
+        sudokuBoard.getElement(0,0).setValue(1);
+        SudokuSolver sudokuSolver = new SudokuSolver(sudokuBoard);
 
         // Then
         assertFalse(sudokuSolver.isAvailable(0,0,1));
@@ -33,8 +31,8 @@ public class SudokuSolverTestSuite {
     public void nextSudokuElement() {
         // Given
         SudokuGameCode sudokuGameCode = new SudokuGameCode();
-        List<List<SudokuElement>> sudokuArray = sudokuGameCode.createNewGame();
-        SudokuSolver sudokuSolver = new SudokuSolver(sudokuArray);
+        SudokuBoard sudokuBoard = sudokuGameCode.createNewGame();
+        SudokuSolver sudokuSolver = new SudokuSolver(sudokuBoard);
 
         // When and Then
         assertTrue(sudokuSolver.nextSudokuElement(8,8));
@@ -46,31 +44,31 @@ public class SudokuSolverTestSuite {
     public void solveSudoku() {
         // Given
         SudokuGameCode sudokuGameCode = new SudokuGameCode();
-        List<List<SudokuElement>> sudokuArraySolvable = sudokuGameCode.createNewGame();
-        List<List<SudokuElement>> sudokuArrayUnsolvable = sudokuGameCode.createNewGame();
+        SudokuBoard sudokuBoardSolvable = sudokuGameCode.createNewGame();
+        SudokuBoard sudokuBoardUnsolvable = sudokuGameCode.createNewGame();
 
         // When
-        SudokuSolver goodSudokuSolver = new SudokuSolver(sudokuArraySolvable);
+        SudokuSolver goodSudokuSolver = new SudokuSolver(sudokuBoardSolvable);
 
-        sudokuArrayUnsolvable.get(0).get(0).setValue(1);
-        sudokuArrayUnsolvable.get(0).get(1).setValue(2);
-        sudokuArrayUnsolvable.get(0).get(2).setValue(3);
-        sudokuArrayUnsolvable.get(0).get(3).setValue(4);
-        sudokuArrayUnsolvable.get(0).get(4).setValue(5);
-        sudokuArrayUnsolvable.get(0).get(5).setValue(6);
-        sudokuArrayUnsolvable.get(0).get(6).setValue(7);
-        sudokuArrayUnsolvable.get(0).get(7).setValue(8);
-        sudokuArrayUnsolvable.get(0).get(8).setValue(9);
-        sudokuArrayUnsolvable.get(1).get(0).setValue(4);
-        sudokuArrayUnsolvable.get(1).get(1).setValue(5);
-        sudokuArrayUnsolvable.get(1).get(2).setValue(6);
-        sudokuArrayUnsolvable.get(1).get(3).setValue(1);
-        sudokuArrayUnsolvable.get(1).get(4).setValue(2);
-        sudokuArrayUnsolvable.get(1).get(5).setValue(3);
+        sudokuBoardUnsolvable.getElement(0,0).setValue(1);
+        sudokuBoardUnsolvable.getElement(0,1).setValue(2);
+        sudokuBoardUnsolvable.getElement(0,2).setValue(3);
+        sudokuBoardUnsolvable.getElement(0,3).setValue(4);
+        sudokuBoardUnsolvable.getElement(0,4).setValue(5);
+        sudokuBoardUnsolvable.getElement(0,5).setValue(6);
+        sudokuBoardUnsolvable.getElement(0,6).setValue(7);
+        sudokuBoardUnsolvable.getElement(0,7).setValue(8);
+        sudokuBoardUnsolvable.getElement(0,8).setValue(9);
+        sudokuBoardUnsolvable.getElement(1,0).setValue(4);
+        sudokuBoardUnsolvable.getElement(1,1).setValue(5);
+        sudokuBoardUnsolvable.getElement(1,2).setValue(6);
+        sudokuBoardUnsolvable.getElement(1,3).setValue(1);
+        sudokuBoardUnsolvable.getElement(1,4).setValue(2);
+        sudokuBoardUnsolvable.getElement(1,5).setValue(3);
 
-        sudokuGameCode.printArray();
+        sudokuGameCode.printSudokuBoard();
 
-        SudokuSolver badSudokuSolver = new SudokuSolver(sudokuArrayUnsolvable);
+        SudokuSolver badSudokuSolver = new SudokuSolver(sudokuBoardUnsolvable);
 
         // Then
         assertTrue(goodSudokuSolver.solveSudoku(0,0));

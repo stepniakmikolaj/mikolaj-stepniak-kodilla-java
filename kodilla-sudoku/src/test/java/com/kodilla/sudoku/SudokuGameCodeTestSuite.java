@@ -9,16 +9,18 @@ import static org.junit.Assert.assertEquals;
 public class SudokuGameCodeTestSuite {
     /**
      * Print all availabilities numbers in sudoku.
-     * @param sudokuArray sudoku board.
+     *
+     * @param sudokuBoard sudoku board.
      */
-    public void printAllAvailabilities(final List<List<SudokuElement>> sudokuArray) {
+    public void printAllAvailabilities(final SudokuBoard sudokuBoard) {
         String availableArray;
 
         for (int rowIndex = 0; rowIndex < 9; rowIndex++) {
             for (int columnIndex = 0; columnIndex < 9; columnIndex++) {
-                availableArray = sudokuArray.get(rowIndex).get(columnIndex).getAvailableValues().toString();
+                availableArray = sudokuBoard.getElement(rowIndex, columnIndex).getAvailableValues().toString();
+                StringBuffer buf = new StringBuffer();
                 for (int i = availableArray.length(); i < 29; i++) {
-                    availableArray = availableArray + " ";
+                    buf.append(availableArray = availableArray + " ");
                 }
                 System.out.print(availableArray + " ");
             }
@@ -34,14 +36,14 @@ public class SudokuGameCodeTestSuite {
 
         //When
 
-        sudokuGameCode.fillSudokuArray("111,122,133,214,225,236,317,328,");
-        sudokuGameCode.printArray();
+        sudokuGameCode.fillSudokuBoard("111,122,133,214,225,236,317,328,");
+        sudokuGameCode.printSudokuBoard();
 
         //Then
-        printAllAvailabilities(sudokuGameCode.getSudokuArray());
+        printAllAvailabilities(sudokuGameCode.getSudokuBoard());
 
-        int expectedValue3x3 = sudokuGameCode.getSudokuArray().get(2).get(2).getAvailableValues().get(0);
-        List<Integer> expectedValue9x1 = sudokuGameCode.getSudokuArray().get(8).get(0).getAvailableValues();
+        int expectedValue3x3 = sudokuGameCode.getSudokuBoard().getElement(2, 2).getAvailableValues().get(0);
+        List<Integer> expectedValue9x1 = sudokuGameCode.getSudokuBoard().getElement(8, 0).getAvailableValues();
 
         assertEquals(9, expectedValue3x3);
         assertEquals(6, expectedValue9x1.size());
@@ -55,13 +57,13 @@ public class SudokuGameCodeTestSuite {
 
         //When
 
-        sudokuGameCode.fillSudokuArray("441,452,463,544,555,566,647,658,669,");
-        sudokuGameCode.printArray();
+        sudokuGameCode.fillSudokuBoard("441,452,463,544,555,566,647,658,669,");
+        sudokuGameCode.printSudokuBoard();
 
         //Then
-        printAllAvailabilities(sudokuGameCode.getSudokuArray());
+        printAllAvailabilities(sudokuGameCode.getSudokuBoard());
 
-        List<Integer> expectedList6x6 = sudokuGameCode.getSudokuArray().get(5).get(5).getAvailableValues();
+        List<Integer> expectedList6x6 = sudokuGameCode.getSudokuBoard().getElement(5, 5).getAvailableValues();
         int expectedValue6x6 = expectedList6x6.get(0);
 
         assertEquals(1, expectedList6x6.size());
@@ -75,13 +77,13 @@ public class SudokuGameCodeTestSuite {
         sudokuGameCode.createNewGame();
 
         //When
-        sudokuGameCode.fillSudokuArray("441,442,443,444,555,556,997,998,999,");
-        sudokuGameCode.printArray();
+        sudokuGameCode.fillSudokuBoard("441,442,443,444,555,556,997,998,999,");
+        sudokuGameCode.printSudokuBoard();
 
         //Then
-        printAllAvailabilities(sudokuGameCode.getSudokuArray());
+        printAllAvailabilities(sudokuGameCode.getSudokuBoard());
 
-        List<Integer> expectedList6x6 = sudokuGameCode.getSudokuArray().get(5).get(5).getAvailableValues();
+        List<Integer> expectedList6x6 = sudokuGameCode.getSudokuBoard().getElement(5, 5).getAvailableValues();
         int expectedValue6x6 = expectedList6x6.get(0);
 
         assertEquals(7, expectedList6x6.size());

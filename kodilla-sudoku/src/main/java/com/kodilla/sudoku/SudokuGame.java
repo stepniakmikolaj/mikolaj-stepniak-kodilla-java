@@ -1,39 +1,39 @@
 package com.kodilla.sudoku;
 
 import java.nio.charset.StandardCharsets;
-import java.util.List;
 import java.util.Scanner;
 
 public class SudokuGame {
     /**
      * Main method to start game.
-     * @param args all methods needed for run game.
+     *
+     * @param args the command line arguments.
      */
     public static void main(final String[] args) {
 
         boolean gameFinished = false;
-        List<List<SudokuElement>> sudokuArray;
+        SudokuBoard sudokuBoard;
 
         Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8.name());
         CommandValidator commandValidator = new CommandValidator();
         SudokuGameCode sudokuGameCode = new SudokuGameCode();
 
-        sudokuArray = sudokuGameCode.createNewGame();
+        sudokuBoard = sudokuGameCode.createNewGame();
 
         while (!gameFinished) {
-            sudokuGameCode.printArray();
+            sudokuGameCode.printSudokuBoard();
             String command = scanner.nextLine();
             switch (command) {
                 case "new game":
-                    sudokuArray = sudokuGameCode.createNewGame();
+                    sudokuBoard = sudokuGameCode.createNewGame();
                     break;
                 case "sudoku":
-                    SudokuSolver sudokuSolver = new SudokuSolver(sudokuArray);
-                    if (sudokuSolver.solveSudoku(0,0)) {
+                    SudokuSolver sudokuSolver = new SudokuSolver(sudokuBoard);
+                    if (sudokuSolver.solveSudoku(0, 0)) {
                         for (int i = 0; i < 9; i++) {
                             for (int j = 0; j < 9; j++) {
-                                sudokuArray.get(i).get(j).getAvailableValues().clear();
-                                sudokuArray.get(i).get(j).getAvailableValues().add(0);
+                                sudokuBoard.getElement(i, j).getAvailableValues().clear();
+                                sudokuBoard.getElement(i, j).getAvailableValues().add(0);
                             }
                         }
                     } else {
@@ -45,7 +45,7 @@ public class SudokuGame {
                     break;
                 default:
                     if (commandValidator.validate(command)) {
-                        sudokuArray = sudokuGameCode.fillSudokuArray(command);
+                        sudokuBoard = sudokuGameCode.fillSudokuBoard(command);
                     }
             }
         }

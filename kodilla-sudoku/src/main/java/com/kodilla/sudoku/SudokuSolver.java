@@ -1,25 +1,22 @@
 package com.kodilla.sudoku;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class SudokuSolver {
-    List<List<SudokuElement>> sudokuArray = new ArrayList<>();
+    private SudokuBoard sudokuBoard;
 
-    public SudokuSolver(final List<List<SudokuElement>> sudokuArray) {
-        this.sudokuArray = sudokuArray;
+    public SudokuSolver(final SudokuBoard sudokuBoard) {
+        this.sudokuBoard = sudokuBoard;
     }
 
     boolean isAvailable(final int row, final int column, final int value) {
         boolean isAvailable = true;
         for (int i = 0; i < 9; i++) {
-            if (value == sudokuArray.get(row).get(i).getValue() || value == sudokuArray.get(i).get(column).getValue()) {
+            if (value == sudokuBoard.getElement(row, i).getValue() || value == sudokuBoard.getElement(i, column).getValue()) {
                 isAvailable = false;
             }
         }
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if (value == sudokuArray.get(row / 3 * 3 + i).get(column / 3 * 3 + j).getValue()) {
+                if (value == sudokuBoard.getElement(row / 3 * 3 + i, column / 3 * 3 + j).getValue()) {
                     isAvailable = false;
                 }
             }
@@ -28,10 +25,11 @@ public class SudokuSolver {
     }
 
     /**
-     * opis metody.
-     * @param row opis parametru.
-     * @param column opis parametru.
-     * @return zwraca to.
+     * Iterates the sudoku board to search of value.
+     *
+     * @param row    row in sudoku board.
+     * @param column column in sudoku board.
+     * @return direct place next sudoku element to fill.
      */
     public boolean nextSudokuElement(final int row, final int column) {
         if (row == 8 && column == 8) {
@@ -44,13 +42,14 @@ public class SudokuSolver {
     }
 
     /**
-     * opis metody.
-     * @param row opis parametru.
-     * @param column opis parametru.
-     * @return zwraca to.
+     * Solve sudoku, set correct value in appropriate row and column.
+     *
+     * @param row    row in sudoku board.
+     * @param column column in sudoku board.
+     * @return sudoku element.
      */
     public boolean solveSudoku(final int row, final int column) {
-        SudokuElement sudokuElement = sudokuArray.get(row).get(column);
+        SudokuElement sudokuElement = sudokuBoard.getElement(row, column);
         if (sudokuElement.getValue() == 0) {
             for (int i = 1; i < 10; i++) {
                 if (isAvailable(row, column, i)) {

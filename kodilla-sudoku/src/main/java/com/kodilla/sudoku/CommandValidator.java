@@ -3,7 +3,7 @@ package com.kodilla.sudoku;
 import static java.lang.Character.isDigit;
 
 public class CommandValidator {
-    private final /*static*/ Integer COMA_CHAR_VALUE = 44;
+    private final Integer COMA_CHAR_VALUE = 44;
 
     public CommandValidator() {
     }
@@ -12,7 +12,7 @@ public class CommandValidator {
      * Validate user system in data.
      *
      * @param command user system in data.
-     * @return is avaible data.
+     * @return is available data.
      */
     public boolean validate(final String command) {
         boolean isValidated = true;

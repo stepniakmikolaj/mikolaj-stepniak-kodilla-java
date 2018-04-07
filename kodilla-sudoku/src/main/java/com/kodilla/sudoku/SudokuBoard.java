@@ -1,18 +1,20 @@
 package com.kodilla.sudoku;
 
+import java.util.ArrayList;
 import java.util.List;
 
-/**
- * klase SudokuBoard, ktora z kolei bedzie przechowywac (List<SudokuRow></SudokuRow>;).
- */
 public class SudokuBoard {
-    List<SudokuRow> sudokuRows;
+    private List<SudokuRow> sudokuRows = new ArrayList<>();
 
-    public SudokuBoard(final List<SudokuRow> sudokuRows) {
-        this.sudokuRows = sudokuRows;
+    public void addRow(final List<SudokuElement> sudokuElementList) {
+        sudokuRows.add(new SudokuRow(sudokuElementList));
     }
 
-//    public List<SudokuRow> getSudokuRows() {
-//        return sudokuRows;
-//    }
+    public SudokuElement getElement(final int row, final int column) {
+        return sudokuRows.get(row).getElement(column);
+    }
+
+    public SudokuRow getRow(final int rowIndex) {
+        return sudokuRows.get(rowIndex);
+    }
 }
