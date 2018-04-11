@@ -18,7 +18,7 @@ public class Display {
     public int askForNumberOfRounds(final String playerName) {
         Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8.name());
         int rounds;
-        System.out.print("Welcome " + playerName.toUpperCase() + " to how many won rounds you want to play?: \n".toUpperCase());
+        System.out.print("Welcome " + playerName.toUpperCase() + " to how many won rounds you want to play?: \n");
         while (!scanner.hasNextInt() || (rounds = scanner.nextInt()) < 1) {
             System.out.println("Incorrect number of rounds, please try again: ".toUpperCase());
         }
@@ -34,8 +34,12 @@ public class Display {
         System.out.println("Quit game, are you sure? (Y/N)");
     }
 
-    public void newGameConfirmationMessage() {
-        System.out.println("Start new game, current results will be lost, are you sure? (Y/N)");
+    public void newGameDuringGameConfirmationMessage() {
+        System.out.println("Start new game, current results will be lost! Y - YES\nto continue game choice:\n'1' - \"rock\"\n'2' - \"paper\"\n'3' - \"scissors\"");
+    }
+
+    public void newGameAtEndGameConfirmationMessage() {
+        System.out.println("Start new game: (Y/N)");
     }
 
     public void incorrectGameInput() {

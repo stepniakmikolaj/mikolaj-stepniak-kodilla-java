@@ -18,12 +18,10 @@ public class GameCode {
         int userScore = 0;
         int computerScore = 0;
         int roundsPerGame = display.askForNumberOfRounds(playerName);
-        int roundCount = 0;
 
         ValidateGameControllers validateGameControllers = new ValidateGameControllers();
 
         display.mainMenu();
-
 
         boolean end = false;
         boolean exit = false;
@@ -32,17 +30,17 @@ public class GameCode {
         Shapes computerShape;
         ShapeGenerator shapeGenerator = new ShapeGenerator();
         while (!end) {
-            roundCount++;
             userInput = validateGameControllers.validateGameInput(scanner.nextLine(), scanner, display);
             switch (userInput) {
 
                 case EXIT:
                     exit = true;
-                    roundCount = roundsPerGame;
+                    System.out.println("Bye Bye");
                     break;
 
                 case NEW_GAME:
-                    roundCount = roundsPerGame;
+                    GameCode gameCode = new GameCode();
+                    gameCode.run(display, scanner, playerName);
                     break;
 
                 default:
@@ -71,7 +69,13 @@ public class GameCode {
         display.displayScores(userScore, computerScore);
         userInput = validateGameControllers.validateEndOfGameChoice(scanner.nextLine(), scanner, display);
 
+        if (userInput.equals(NEW_GAME)){
+            GameCode gameCode = new GameCode();
+            gameCode.run(display, scanner, playerName);
+        }
+
         if (userInput.equals(EXIT)) {
+            System.out.println("Bye Bye");
             exit = true;
         }
         return exit;

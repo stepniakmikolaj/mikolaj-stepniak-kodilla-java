@@ -55,7 +55,7 @@ public class ValidateGameControllers {
                     }
                     break;
                 case NEW_GAME:
-                    display.newGameConfirmationMessage();
+                    display.newGameDuringGameConfirmationMessage();
                     input = scanner.nextLine();
                     if (input.toUpperCase().equals(YES)) {
                         return NEW_GAME;
@@ -87,7 +87,7 @@ public class ValidateGameControllers {
                     }
                     break;
                 case NEW_GAME:
-                    display.newGameConfirmationMessage();
+                    display.newGameAtEndGameConfirmationMessage();
                     input = scanner.nextLine();
                     if (input.toUpperCase().equals(YES)) {
                         return NEW_GAME;
