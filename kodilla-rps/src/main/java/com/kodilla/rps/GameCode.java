@@ -5,8 +5,6 @@ import java.util.Scanner;
 public class GameCode {
     private static final String EXIT = "x";
     private static final String NEW_GAME = "n";
-    private int userScore = 0;
-    private int computerScore = 0;
 
     /**
      * game loop.
@@ -17,15 +15,16 @@ public class GameCode {
      * @return end game.
      */
     public boolean run(final Display display, final Scanner scanner, final String playerName) {
-        userScore = 0;
-        computerScore = 0;
+        int userScore = 0;
+        int computerScore = 0;
         int roundsPerGame = display.askForNumberOfRounds(playerName);
+        int roundCount = 0;
 
         ValidateGameControllers validateGameControllers = new ValidateGameControllers();
 
         display.mainMenu();
 
-        int roundCount = 0;
+
         boolean end = false;
         boolean exit = false;
         String userInput;
@@ -48,12 +47,8 @@ public class GameCode {
 
                 default:
                     userShape = Shapes.valueOf(userInput.toUpperCase());
-                    try {
-                        computerShape = shapeGenerator.randomShapeGenerator();
-                    } catch (InvalidChoiceTypeException e) {
-                        e.printStackTrace();
-                        System.out.println("Invalid choice generated.");
-                    }
+                    computerShape = shapeGenerator.randomShapeGenerator();
+
                     display.showRoundResult(userShape, computerShape);
                     if (!userShape.equals(computerShape)) {
                         if (userShape.equals(Shapes.ROCK) && computerShape.equals(Shapes.SCISSORS) ||
@@ -71,7 +66,6 @@ public class GameCode {
             }
             if (roundsPerGame == userScore || roundsPerGame == computerScore) {
                 end = true;
-                break;
             }
         }
         display.displayScores(userScore, computerScore);

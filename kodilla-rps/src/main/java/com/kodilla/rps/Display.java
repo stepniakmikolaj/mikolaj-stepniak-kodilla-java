@@ -15,7 +15,7 @@ public class Display {
      * @param playerName playerName in game.
      * @return how many wins rounds player want to play.
      */
-    public static int askForNumberOfRounds(final String playerName) {
+    public int askForNumberOfRounds(final String playerName) {
         Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8.name());
         int rounds;
         System.out.print("Welcome " + playerName.toUpperCase() + " to how many won rounds you want to play?: \n".toUpperCase());

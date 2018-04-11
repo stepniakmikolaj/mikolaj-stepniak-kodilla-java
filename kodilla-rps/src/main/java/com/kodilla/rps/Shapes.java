@@ -18,14 +18,13 @@ public enum Shapes {
      *
      * @param value stores random int.
      * @return type.
-     * @throws InvalidChoiceTypeException Provided invalid choice type in game.
      */
-    public static Shapes getChoiceByValue(final String value) throws InvalidChoiceTypeException {
+    public static Shapes getChoiceByValue(final String value) {
         for (Shapes type : Shapes.values()) {
             if (type.getText().equalsIgnoreCase(value)) {
                 return type;
             }
         }
-        throw new InvalidChoiceTypeException();
+        return Shapes.getChoiceByValue(value);
     }
 }
