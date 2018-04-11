@@ -29,7 +29,7 @@ public class GameCode {
         boolean exit = false;
         String userInput;
         Shapes userShape;
-        Shapes computerShape = null;
+        Shapes computerShape;
         ShapeGenerator shapeGenerator = new ShapeGenerator();
         while (!end) {
             roundCount++;
