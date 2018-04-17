@@ -34,13 +34,15 @@ public class GameCode {
             switch (userInput) {
 
                 case EXIT:
-                    exit = true;
                     System.out.println("Bye Bye");
-                    break;
+                    exit = true;
+                    return exit;
 
                 case NEW_GAME:
-                    GameCode gameCode = new GameCode();
-                    gameCode.run(display, scanner, playerName);
+                    exit = false;
+                    display.displayActualScores(userScore, computerScore);
+                    userScore = 0;
+                    computerScore = 0;
                     break;
 
                 default:
@@ -69,9 +71,8 @@ public class GameCode {
         display.displayScores(userScore, computerScore);
         userInput = validateGameControllers.validateEndOfGameChoice(scanner.nextLine(), scanner, display);
 
-        if (userInput.equals(NEW_GAME)){
-            GameCode gameCode = new GameCode();
-            gameCode.run(display, scanner, playerName);
+        if (userInput.equals(NEW_GAME)) {
+            exit = false;
         }
 
         if (userInput.equals(EXIT)) {

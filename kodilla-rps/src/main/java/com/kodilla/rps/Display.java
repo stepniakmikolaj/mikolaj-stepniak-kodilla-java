@@ -18,10 +18,15 @@ public class Display {
     public int askForNumberOfRounds(final String playerName) {
         Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8.name());
         int rounds;
-        System.out.print("Welcome " + playerName.toUpperCase() + " to how many won rounds you want to play?: \n");
-        while (!scanner.hasNextInt() || (rounds = scanner.nextInt()) < 1) {
-            System.out.println("Incorrect number of rounds, please try again: ".toUpperCase());
-        }
+        System.out.print("Welcome " + playerName.toUpperCase() + " set won rounds you want to play: \n");
+        do {
+            System.out.print("Range: 1 - 10: \n");
+            while (!scanner.hasNextInt()) {
+                System.out.println("Integers only!".toUpperCase());
+                scanner.next();
+            }
+            rounds = scanner.nextInt();
+        } while (rounds < 1 || rounds > 10);
         return rounds;
     }
 
@@ -77,6 +82,14 @@ public class Display {
                     "%n-------------------------------------------------", userScore, computerScore));
         }
         System.out.println("\nWould you like try one more time? 'n' - start new game; 'x' - quit;");
+    }
+
+    public void displayActualScores(final int userScore, final int computerScore) {
+        System.out.println(String.format("-------------------------------------------------" +
+                "%nPrevious Scores:" +
+                "%n%d vs %d" +
+                "%nReset Scores Complete" +
+                "%n-------------------------------------------------", userScore, computerScore));
     }
 
     public void showRoundResult(final Shapes userShape, final Shapes computerShape) {
