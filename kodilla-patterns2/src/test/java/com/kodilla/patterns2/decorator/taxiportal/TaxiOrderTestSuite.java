@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.math.BigDecimal;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class TaxiOrderTestSuite {
     @Test
@@ -118,7 +118,7 @@ public class TaxiOrderTestSuite {
     }
 
     @Test
-    public void testUberWithTwoChildSeatsGetCost(){
+    public void testUberWithTwoChildSeatsGetCost() {
         //G
         TaxiOrder theOrder = new BasicTaxiOrder();
         theOrder = new UberNetworkOrderDecorator(theOrder);
@@ -131,7 +131,7 @@ public class TaxiOrderTestSuite {
     }
 
     @Test
-    public void testUberWithTwoChildSeatsGetDescription(){
+    public void testUberWithTwoChildSeatsGetDescription() {
         //G
         TaxiOrder theOrder = new BasicTaxiOrder();
         theOrder = new UberNetworkOrderDecorator(theOrder);
