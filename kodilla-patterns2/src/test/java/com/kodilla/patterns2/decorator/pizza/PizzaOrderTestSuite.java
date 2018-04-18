@@ -38,7 +38,6 @@ public class PizzaOrderTestSuite {
         pizzaOrder = new ExtraMozzarellaDecorator(pizzaOrder);
         pizzaOrder = new HamDecorator(pizzaOrder);
         pizzaOrder = new SalamiDecorator(pizzaOrder);
-        System.out.println("36");
         //W
         BigDecimal theCost = pizzaOrder.getCost();
         //T
