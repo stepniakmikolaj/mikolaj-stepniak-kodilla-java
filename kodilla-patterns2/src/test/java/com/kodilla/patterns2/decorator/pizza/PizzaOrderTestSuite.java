@@ -11,7 +11,6 @@ public class PizzaOrderTestSuite {
     public void testBasicPizzaOrderCost() {
         //G
         PizzaOrder pizzaOrder = new BasicPizzaOrder();
-        pizzaOrder.getCost();
         //W
         BigDecimal theCost = pizzaOrder.getCost();
         //T
@@ -22,7 +21,6 @@ public class PizzaOrderTestSuite {
     public void testBasicPizzaOrderDescription() {
         //G
         PizzaOrder pizzaOrder = new BasicPizzaOrder();
-        pizzaOrder.getDescription();
         //W
         String description = pizzaOrder.getDescription();
         //T
