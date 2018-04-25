@@ -9,13 +9,9 @@ public class Mentor implements Observer {
     }
 
     @Override
-    public void update(Homework homework) {
-        System.out.println(mentorName + " homework from " + homework.getStudentName() + " (homework: " + homework.getHomeworks().peekFirst() + ")");
+    public void update(HomeworkQueue homeworkQueue) {
+        System.out.println(mentorName + " homeworkQueue from " + homeworkQueue.getStudentName() + " (homeworkQueue: " + homeworkQueue.getHomeworks().peekFirst() + ")");
         updateCount++;
-    }
-
-    public String getMentorName() {
-        return mentorName;
     }
 
     public int getUpdateCount() {

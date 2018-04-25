@@ -5,19 +5,19 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
-public class Homework implements Observable {
+public class HomeworkQueue implements Observable {
     private final List<Observer> observers;
     private final Deque<String> homeworks;
     private final String studentName;
 
-    public Homework(String studentName) {
+    public HomeworkQueue(String studentName) {
         observers = new ArrayList<>();
         homeworks = new ArrayDeque<>();
         this.studentName = studentName;
     }
 
     public void addHomework(String homework) {
-        this.homeworks.add(homework);
+        this.homeworks.offer(homework);
         notifyObservers();
     }
 
