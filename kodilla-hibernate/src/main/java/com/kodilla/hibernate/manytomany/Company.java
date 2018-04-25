@@ -9,7 +9,11 @@ import java.util.List;
         name = "Company.searchByThreeFirstLetters",
         query = "SELECT * FROM companies WHERE SUBSTRING(company_name, 1, 3) = :SUBSTRING",
         resultClass = Company.class
+)
 
+@NamedQuery(
+        name = "Company.searchCompany",
+        query = "FROM Company WHERE company_name LIKE :ARG"
 )
 
 @Entity
