@@ -11,10 +11,10 @@ import java.math.BigDecimal;
 
 @Service
 @EnableAspectJAutoProxy
-public class OrederFacade {
+public class OrderFacade {
     @Autowired
     private ShopService shopService;
-    private static final Logger LOGGER = LoggerFactory.getLogger(OrederFacade.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(OrderFacade.class);
 
 
     public void processOrder(final OrderDto orderDto, final Long userId) throws OrderProcesingExecption {

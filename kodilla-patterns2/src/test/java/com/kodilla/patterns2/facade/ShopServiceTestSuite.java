@@ -3,7 +3,7 @@ package com.kodilla.patterns2.facade;
 import com.kodilla.patterns2.facade.api.ItemDto;
 import com.kodilla.patterns2.facade.api.OrderDto;
 import com.kodilla.patterns2.facade.api.OrderProcesingExecption;
-import com.kodilla.patterns2.facade.api.OrederFacade;
+import com.kodilla.patterns2.facade.api.OrderFacade;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ public class ShopServiceTestSuite {
     @Autowired
     private ShopService shopService;
     @Autowired
-    private OrederFacade orederFacade;
+    private OrderFacade orderFacade;
 
     @Test
     public void testShopServiceSubmitOrder() {
@@ -72,7 +72,7 @@ public class ShopServiceTestSuite {
         orderDto.addItem(new ItemDto(25L, 1));
         orderDto.addItem(new ItemDto(11L, 3));
         try {
-            orederFacade.proccesOrder(orderDto, 1L);
+            orderFacade.processOrder(orderDto, 1L);
         } catch (OrderProcesingExecption e) {
             // business exception - should be handled in real application
         }
