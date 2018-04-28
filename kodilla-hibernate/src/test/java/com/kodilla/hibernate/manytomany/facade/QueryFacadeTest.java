@@ -27,7 +27,7 @@ public class QueryFacadeTest {
     @Test
     public void testSearchEmployee() {
         //G
-        Employee johnSmith = new Employee("John", "Smith");
+        Employee johnSmith = new Employee("Johnson", "Smith");
         Employee stephanieClarkson = new Employee("Stephanie", "Clarkson");
         Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
 
@@ -36,10 +36,10 @@ public class QueryFacadeTest {
         employeeDao.save(lindaKovalsky);
 
         //W
-        List<Employee> result = queryFacade.searchEmployee("%val%");
+        List<Employee> result = queryFacade.searchEmployee("o");
 
         //T
-        assertEquals(1, result.size());
+        assertEquals(3, result.size());
 
         //Cup
         try {
@@ -61,7 +61,7 @@ public class QueryFacadeTest {
         companyDao.save(greyMatter);
 
         //W
-        List<Company> result = queryFacade.searchCompany("%ma%");
+        List<Company> result = queryFacade.searchCompany("ma");
 
         //T
         assertEquals(3, result.size());

@@ -22,11 +22,11 @@ public class QueryFacade {
     }
 
     public List<Employee> searchEmployee(String arg) {
-        return employeeDao.searchEmployee(arg);
+        return employeeDao.searchEmployee("%" + arg + "%");
     }
 
     public List<Company> searchCompany(String arg) {
-        return companyDao.searchCompany(arg);
+        return companyDao.searchCompany("%" + arg + "%");
     }
 
 }
