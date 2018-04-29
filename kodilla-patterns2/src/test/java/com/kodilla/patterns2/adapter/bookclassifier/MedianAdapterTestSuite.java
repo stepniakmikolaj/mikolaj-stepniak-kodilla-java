@@ -21,7 +21,7 @@ public class MedianAdapterTestSuite {
                 new Book("", "", 1995, "")};
 
         Set<Book> bookSet = new HashSet<>(Arrays.asList(books));
-        MedianAdapter adapter = new MedianAdapter();
+        MedianAdapter adapter = new MedianAdapter(new MedianAdaptee());
         // When
         int medianOfYears = adapter.publicationYearMedian(bookSet);
         //Then
