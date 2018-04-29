@@ -8,7 +8,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class MedianAdapter extends MedianAdaptee implements Classifier {
+public class MedianAdapter implements Classifier {
+
+    private final MedianAdaptee medianAdaptee;
+
+    public MedianAdapter(MedianAdaptee medianAdaptee) {
+        this.medianAdaptee = medianAdaptee;
+    }
+
     @Override
     public int publicationYearMedian(Set<com.kodilla.patterns2.adapter.bookclassifier.librarya.Book> bookSet) {
         Map<BookSignature, Book> bookMap = new HashMap<>();
@@ -20,6 +27,6 @@ public class MedianAdapter extends MedianAdaptee implements Classifier {
                     bookA.getPublicationYear());
             bookMap.put(signature, bookB);
         }
-        return medianPublicationYear(bookMap);
+        return this.medianAdaptee.medianPublicationYear(bookMap);
     }
 }
