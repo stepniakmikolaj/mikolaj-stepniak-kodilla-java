@@ -8,9 +8,9 @@ import org.openqa.selenium.support.ui.Select;
 
 public class FacebookTestingApp {
 
-    public static final String XPATH_DAY = "//div[contains(@class, \"large_form\")]/div/div/span/span/select[1]";
-    public static final String XPATH_MONTH = "//div[contains(@class, \"large_form\")]/div/div/span/span/select[2]";
-    public static final String XPATH_YEAR = "//div[contains(@class, \"large_form\")]/div/div/span/span/select[3]";
+    public static final String XPATH_DAY = "//select[@id=\"day\"]";
+    public static final String XPATH_MONTH = "//select[@id=\"month\"]";
+    public static final String XPATH_YEAR = "//select[@id=\"year\"]";
 
     public static void main(String[] args) {
         WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.FIREFOX);
